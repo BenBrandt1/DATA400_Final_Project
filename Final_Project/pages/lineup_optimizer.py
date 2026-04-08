@@ -188,7 +188,7 @@ for i, (place, default_pts) in enumerate(scoring_selection.items()):
 # ─────────────────────────────────────────────
 # LOAD REGRESSION CUTS
 # ─────────────────────────────────────────────
-REGRESSION_FILE = 'regression_outputs.csv'
+REGRESSION_FILE = r"C:\Users\badba\OneDrive\Documents\GitHub\DATA400_Final_Project\Final_Project\regression_outputs.csv"
 
 try:
     cuts_raw = pd.read_csv(REGRESSION_FILE)
