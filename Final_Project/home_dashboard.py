@@ -79,7 +79,7 @@ def get_event_data_api(team_id, event_code, gender, season_id):
     )
     proxy_user = st.secrets["webshare"]["username"]
     proxy_pass = st.secrets["webshare"]["password"]
-    proxy = {"https": f"http://{proxy_user}:{proxy_pass}@p.webshare.io:80"}
+    proxy = f"http://{proxy_user}:{proxy_pass}@p.webshare.io:80"
     
     try:
         response = requests.get(url, impersonate="chrome124", proxy=proxy, timeout=10)
