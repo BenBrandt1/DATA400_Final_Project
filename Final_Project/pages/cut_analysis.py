@@ -397,7 +397,7 @@ else:
         remaining   = [e for e in pivot.columns if e not in event_order]
         pivot       = pivot[event_order + remaining]
 
-        hover_text = pivot.applymap(lambda v: f'{v:.1f} pts' if v > 0 else '—')
+        hover_text = pivot.map(lambda v: f'{v:.1f} pts' if v > 0 else '—')
 
         fig_heat = go.Figure(go.Heatmap(
             z=pivot.values,
