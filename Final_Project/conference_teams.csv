@@ -1,0 +1,1123 @@
+team_id,team_name,gender,conference_id,conference
+642,Alfred State College,M,147,Allegheny Mountain Collegiate Conference
+642,Alfred State College,F,147,Allegheny Mountain Collegiate Conference
+138,UMBC,M,144,America East
+383,Binghamton University,M,144,America East
+522,Bryant University,M,144,America East
+335,Virginia Military Institute,M,144,America East
+443,New Jersey Institute of Technology,M,144,America East
+169,University of Maine,M,144,America East
+285,University of New Hampshire,F,144,America East
+522,Bryant University,F,144,America East
+334,University of Vermont,F,144,America East
+138,UMBC,F,144,America East
+383,Binghamton University,F,144,America East
+169,University of Maine,F,144,America East
+335,Virginia Military Institute,F,144,America East
+483,Rice University,F,175,American Athletic Conference
+452,Liberty University,F,175,American Athletic Conference
+349,Tulane University,F,175,American Athletic Conference
+351,Florida International University,F,175,American Athletic Conference
+246,East Carolina University,F,175,American Athletic Conference
+257,Florida Atlantic University,F,175,American Athletic Conference
+377,Marshall University,F,175,American Athletic Conference
+159,James Madison University,F,175,American Athletic Conference
+397,University of North Texas,F,175,American Athletic Conference
+10005094,Nebraska Wesleyan University,M,214,American Rivers Conference
+157,Luther College,M,214,American Rivers Conference
+136,Loras College,M,214,American Rivers Conference
+265,Coe College,M,214,American Rivers Conference
+8,Simpson College,M,214,American Rivers Conference
+10005094,Nebraska Wesleyan University,F,214,American Rivers Conference
+157,Luther College,F,214,American Rivers Conference
+265,Coe College,F,214,American Rivers Conference
+136,Loras College,F,214,American Rivers Conference
+8,Simpson College,F,214,American Rivers Conference
+539,Milligan University,M,184,Appalachian Athletic Conference
+10023526,"University of Tennessee, Southern",M,184,Appalachian Athletic Conference
+10000784,West Virginia Institute of Technology,M,184,Appalachian Athletic Conference
+10004938,Columbia College (SC),M,184,Appalachian Athletic Conference
+10026650,University of Pikeville,M,184,Appalachian Athletic Conference
+539,Milligan University,F,184,Appalachian Athletic Conference
+624,Brenau University,F,184,Appalachian Athletic Conference
+10004938,Columbia College (SC),F,184,Appalachian Athletic Conference
+10023526,"University of Tennessee, Southern",F,184,Appalachian Athletic Conference
+10026650,University of Pikeville,F,184,Appalachian Athletic Conference
+10000784,West Virginia Institute of Technology,F,184,Appalachian Athletic Conference
+251,George Washington University,M,2,Atlantic 10 Conference
+250,George Mason University,M,2,Atlantic 10 Conference
+146,La Salle University,M,2,Atlantic 10 Conference
+273,Davidson College,M,2,Atlantic 10 Conference
+457,St Bonaventure University,M,2,Atlantic 10 Conference
+245,Fordham University,M,2,Atlantic 10 Conference
+491,Saint Louis University,M,2,Atlantic 10 Conference
+251,George Washington University,F,2,Atlantic 10 Conference
+37,University of Richmond,F,2,Atlantic 10 Conference
+281,Duquesne University,F,2,Atlantic 10 Conference
+245,Fordham University,F,2,Atlantic 10 Conference
+457,St Bonaventure University,F,2,Atlantic 10 Conference
+146,La Salle University,F,2,Atlantic 10 Conference
+482,University of Rhode Island,F,2,Atlantic 10 Conference
+250,George Mason University,F,2,Atlantic 10 Conference
+273,Davidson College,F,2,Atlantic 10 Conference
+491,Saint Louis University,F,2,Atlantic 10 Conference
+394,North Carolina State University,M,3,Atlantic Coast Conference
+110,University of California-Berkeley,M,3,Atlantic Coast Conference
+112,Stanford University,M,3,Atlantic Coast Conference
+174,University of Louisville,M,3,Atlantic Coast Conference
+336,Virginia Tech,M,3,Atlantic Coast Conference
+73,University of Virginia,M,3,Atlantic Coast Conference
+77,Florida State University,M,3,Atlantic Coast Conference
+60,"University of North Carolina, Chapel Hill",M,3,Atlantic Coast Conference
+53,University of Notre Dame,M,3,Atlantic Coast Conference
+75,Southern Methodist University,M,3,Atlantic Coast Conference
+405,University of Pittsburgh,M,3,Atlantic Coast Conference
+34,Georgia Institute of Technology,M,3,Atlantic Coast Conference
+280,Duke University,M,3,Atlantic Coast Conference
+228,Boston College,M,3,Atlantic Coast Conference
+425,University of Miami (Florida),M,3,Atlantic Coast Conference
+73,University of Virginia,F,3,Atlantic Coast Conference
+110,University of California-Berkeley,F,3,Atlantic Coast Conference
+112,Stanford University,F,3,Atlantic Coast Conference
+174,University of Louisville,F,3,Atlantic Coast Conference
+394,North Carolina State University,F,3,Atlantic Coast Conference
+60,"University of North Carolina, Chapel Hill",F,3,Atlantic Coast Conference
+405,University of Pittsburgh,F,3,Atlantic Coast Conference
+280,Duke University,F,3,Atlantic Coast Conference
+336,Virginia Tech,F,3,Atlantic Coast Conference
+53,University of Notre Dame,F,3,Atlantic Coast Conference
+77,Florida State University,F,3,Atlantic Coast Conference
+34,Georgia Institute of Technology,F,3,Atlantic Coast Conference
+75,Southern Methodist University,F,3,Atlantic Coast Conference
+425,University of Miami (Florida),F,3,Atlantic Coast Conference
+228,Boston College,F,3,Atlantic Coast Conference
+473,Marymount University (Virginia),M,208,Atlantic East Conference
+465,Saint Mary's College of Maryland,M,208,Atlantic East Conference
+8480,Marywood University,M,208,Atlantic East Conference
+10012097,Immaculata University,M,208,Atlantic East Conference
+247,Gallaudet University,M,208,Atlantic East Conference
+473,Marymount University (Virginia),F,208,Atlantic East Conference
+465,Saint Mary's College of Maryland,F,208,Atlantic East Conference
+8480,Marywood University,F,208,Atlantic East Conference
+10012097,Immaculata University,F,208,Atlantic East Conference
+10004596,Cedar Crest College,F,208,Atlantic East Conference
+247,Gallaudet University,F,208,Atlantic East Conference
+9415,Queens University Charlotte,M,32,Atlantic Sun Conference
+275,University of Delaware,M,32,Atlantic Sun Conference
+257,Florida Atlantic University,M,32,Atlantic Sun Conference
+249,Gardner-Webb University,M,32,Atlantic Sun Conference
+410,Old Dominion University,M,32,Atlantic Sun Conference
+10002386,Bellarmine University,M,32,Atlantic Sun Conference
+275,University of Delaware,F,32,Atlantic Sun Conference
+531,Florida Gulf Coast University,F,32,Atlantic Sun Conference
+9415,Queens University Charlotte,F,32,Atlantic Sun Conference
+521,University of North Florida,F,32,Atlantic Sun Conference
+253,Georgia Southern University,F,32,Atlantic Sun Conference
+410,Old Dominion University,F,32,Atlantic Sun Conference
+10001792,University of North Carolina Asheville,F,32,Atlantic Sun Conference
+10002386,Bellarmine University,F,32,Atlantic Sun Conference
+249,Gardner-Webb University,F,32,Atlantic Sun Conference
+252,Georgetown University,M,4,Big East Conference
+462,Seton Hall University,M,4,Big East Conference
+375,Xavier University,M,4,Big East Conference
+32,Villanova University,M,4,Big East Conference
+479,Providence College,M,4,Big East Conference
+32,Villanova University,F,4,Big East Conference
+28,University of Connecticut,F,4,Big East Conference
+252,Georgetown University,F,4,Big East Conference
+375,Xavier University,F,4,Big East Conference
+186,Butler University,F,4,Big East Conference
+462,Seton Hall University,F,4,Big East Conference
+479,Providence College,F,4,Big East Conference
+10050057,Marquette University,F,4,Big East Conference
+92,Indiana University-Bloomington,M,6,Big Ten Conference
+89,University of Michigan,M,6,Big Ten Conference
+393,Ohio State University,M,6,Big Ten Conference
+98,University of Wisconsin-Madison,M,6,Big Ten Conference
+401,Northwestern University,M,6,Big Ten Conference
+102,University of Southern California,M,6,Big Ten Conference
+27,Purdue University,M,6,Big Ten Conference
+82,Pennsylvania State University,M,6,Big Ten Conference
+31,University of Minnesota,M,6,Big Ten Conference
+166,University of Iowa,M,6,Big Ten Conference
+89,University of Michigan,F,6,Big Ten Conference
+92,Indiana University-Bloomington,F,6,Big Ten Conference
+102,University of Southern California,F,6,Big Ten Conference
+393,Ohio State University,F,6,Big Ten Conference
+98,University of Wisconsin-Madison,F,6,Big Ten Conference
+31,University of Minnesota,F,6,Big Ten Conference
+107,UCLA,F,6,Big Ten Conference
+401,Northwestern University,F,6,Big Ten Conference
+439,University of Nebraska,F,6,Big Ten Conference
+27,Purdue University,F,6,Big Ten Conference
+82,Pennsylvania State University,F,6,Big Ten Conference
+166,University of Iowa,F,6,Big Ten Conference
+23,University of Illinois,F,6,Big Ten Conference
+43,Rutgers University,F,6,Big Ten Conference
+51,University of Hawaii,M,5,Big West Conference
+548,Grand Canyon University,M,5,Big West Conference
+121,University of California-San Diego,M,5,Big West Conference
+194,University of California-Santa Barbara,M,5,Big West Conference
+116,"California State University, Bakersfield",M,5,Big West Conference
+90,Seattle University,M,5,Big West Conference
+121,University of California-San Diego,F,5,Big West Conference
+51,University of Hawaii,F,5,Big West Conference
+194,University of California-Santa Barbara,F,5,Big West Conference
+192,University of California-Davis,F,5,Big West Conference
+497,University of San Diego,F,5,Big West Conference
+116,"California State University, Bakersfield",F,5,Big West Conference
+90,Seattle University,F,5,Big West Conference
+87,Arizona State University,M,7,Big XII Conference
+120,University of Arizona,M,7,Big XII Conference
+330,University of Utah,M,7,Big XII Conference
+220,Brigham Young University,M,7,Big XII Conference
+318,Texas Christian University,M,7,Big XII Conference
+260,University of Cincinnati,M,7,Big XII Conference
+294,West Virginia University,M,7,Big XII Conference
+152,University of Kansas,M,7,Big XII Conference
+87,Arizona State University,F,7,Big XII Conference
+120,University of Arizona,F,7,Big XII Conference
+63,University of Houston,F,7,Big XII Conference
+260,University of Cincinnati,F,7,Big XII Conference
+330,University of Utah,F,7,Big XII Conference
+318,Texas Christian University,F,7,Big XII Conference
+220,Brigham Young University,F,7,Big XII Conference
+152,University of Kansas,F,7,Big XII Conference
+294,West Virginia University,F,7,Big XII Conference
+162,Iowa State University,F,7,Big XII Conference
+111,Johns Hopkins University,M,143,Centennial Conference
+254,Gettysburg College,M,143,Centennial Conference
+315,Swarthmore College,M,143,Centennial Conference
+277,Dickinson College,M,143,Centennial Conference
+64,Franklin & Marshall College,M,143,Centennial Conference
+329,Ursinus College,M,143,Centennial Conference
+38,Washington College (Maryland),M,143,Centennial Conference
+299,McDaniel College,M,143,Centennial Conference
+315,Swarthmore College,F,143,Centennial Conference
+111,Johns Hopkins University,F,143,Centennial Conference
+254,Gettysburg College,F,143,Centennial Conference
+277,Dickinson College,F,143,Centennial Conference
+329,Ursinus College,F,143,Centennial Conference
+64,Franklin & Marshall College,F,143,Centennial Conference
+38,Washington College (Maryland),F,143,Centennial Conference
+183,Bryn Mawr College,F,143,Centennial Conference
+299,McDaniel College,F,143,Centennial Conference
+563,Baruch College,M,165,City University of New York
+218,Brooklyn College,M,165,City University of New York
+149,Lehman College,M,165,City University of New York
+448,York College (NY),M,165,City University of New York
+563,Baruch College,F,165,City University of New York
+180,Hunter College,F,165,City University of New York
+8477,John Jay College,F,165,City University of New York
+218,Brooklyn College,F,165,City University of New York
+149,Lehman College,F,165,City University of New York
+448,York College (NY),F,165,City University of New York
+395,"University of North Carolina, Wilmington",M,8,Coastal Athletic Association
+279,Drexel University,M,8,Coastal Athletic Association
+320,Towson University,M,8,Coastal Athletic Association
+350,William & Mary,M,8,Coastal Athletic Association
+10007454,Monmouth University,M,8,Coastal Athletic Association
+350,William & Mary,F,8,Coastal Athletic Association
+395,"University of North Carolina, Wilmington",F,8,Coastal Athletic Association
+320,Towson University,F,8,Coastal Athletic Association
+279,Drexel University,F,8,Coastal Athletic Association
+18,Northeastern University,F,8,Coastal Athletic Association
+566,Campbell University,F,8,Coastal Athletic Association
+418,Stony Brook University,F,8,Coastal Athletic Association
+10007454,Monmouth University,F,8,Coastal Athletic Association
+232,Augustana College,M,40,College Conference of Illinois & Wisconsin
+78,Wheaton College (Illinois),M,40,College Conference of Illinois & Wisconsin
+199,Carthage College,M,40,College Conference of Illinois & Wisconsin
+198,Carroll University (WI),M,40,College Conference of Illinois & Wisconsin
+429,Millikin University,M,40,College Conference of Illinois & Wisconsin
+25,Illinois Wesleyan University,M,40,College Conference of Illinois & Wisconsin
+396,North Central College,M,40,College Conference of Illinois & Wisconsin
+78,Wheaton College (Illinois),F,40,College Conference of Illinois & Wisconsin
+232,Augustana College,F,40,College Conference of Illinois & Wisconsin
+199,Carthage College,F,40,College Conference of Illinois & Wisconsin
+25,Illinois Wesleyan University,F,40,College Conference of Illinois & Wisconsin
+198,Carroll University (WI),F,40,College Conference of Illinois & Wisconsin
+429,Millikin University,F,40,College Conference of Illinois & Wisconsin
+396,North Central College,F,40,College Conference of Illinois & Wisconsin
+10003592,Emmanuel University,M,205,Conference of the Carolinas
+10015135,University of Montevallo,M,205,Conference of the Carolinas
+8475,Converse University,M,205,Conference of the Carolinas
+614,King University,M,205,Conference of the Carolinas
+10008686,Barton College,M,205,Conference of the Carolinas
+10007086,Chowan University,M,205,Conference of the Carolinas
+10007516,University of North Carolina-Pembroke,F,205,Conference of the Carolinas
+10003592,Emmanuel University,F,205,Conference of the Carolinas
+10015135,University of Montevallo,F,205,Conference of the Carolinas
+614,King University,F,205,Conference of the Carolinas
+8475,Converse University,F,205,Conference of the Carolinas
+10007086,Chowan University,F,205,Conference of the Carolinas
+10008686,Barton College,F,205,Conference of the Carolinas
+346,State University of New York at Geneseo,M,52,Empire 8
+212,Alfred University,M,52,Empire 8
+22,Hartwick College,M,52,Empire 8
+470,State University of New York at Brockport,M,52,Empire 8
+437,Nazareth University,M,52,Empire 8
+346,State University of New York at Geneseo,F,52,Empire 8
+470,State University of New York at Brockport,F,52,Empire 8
+22,Hartwick College,F,52,Empire 8
+437,Nazareth University,F,52,Empire 8
+212,Alfred University,F,52,Empire 8
+86,Grand Valley State University,M,56,Great Lakes Intercollegiate Athletic Conference
+72,Northern Michigan University,M,56,Great Lakes Intercollegiate Athletic Conference
+289,Wayne State University,M,56,Great Lakes Intercollegiate Athletic Conference
+96,Saint Cloud State University,M,56,Great Lakes Intercollegiate Athletic Conference
+10004316,Saginaw Valley State University,M,56,Great Lakes Intercollegiate Athletic Conference
+10007690,Augustana University,M,56,Great Lakes Intercollegiate Athletic Conference
+10012529,Davenport University,M,56,Great Lakes Intercollegiate Athletic Conference
+10037277,Lake Superior State University,M,56,Great Lakes Intercollegiate Athletic Conference
+86,Grand Valley State University,F,56,Great Lakes Intercollegiate Athletic Conference
+72,Northern Michigan University,F,56,Great Lakes Intercollegiate Athletic Conference
+289,Wayne State University,F,56,Great Lakes Intercollegiate Athletic Conference
+10004316,Saginaw Valley State University,F,56,Great Lakes Intercollegiate Athletic Conference
+10012529,Davenport University,F,56,Great Lakes Intercollegiate Athletic Conference
+10037277,Lake Superior State University,F,56,Great Lakes Intercollegiate Athletic Conference
+122,Drury University,M,169,Great Lakes Valley Conference
+100,University of Indianapolis,M,169,Great Lakes Valley Conference
+10008207,McKendree University,M,169,Great Lakes Valley Conference
+447,Missouri University of Science & Technology,M,169,Great Lakes Valley Conference
+10005797,Quincy University,M,169,Great Lakes Valley Conference
+57,Lewis University,M,169,Great Lakes Valley Conference
+10002661,University of Missouri-St. Louis,M,169,Great Lakes Valley Conference
+10000408,William Jewell College,M,169,Great Lakes Valley Conference
+10034316,Rockhurst University,M,169,Great Lakes Valley Conference
+126,Truman State University,M,169,Great Lakes Valley Conference
+10043349,Southwest Baptist University,M,169,Great Lakes Valley Conference
+10002186,Maryville University,M,169,Great Lakes Valley Conference
+122,Drury University,F,169,Great Lakes Valley Conference
+100,University of Indianapolis,F,169,Great Lakes Valley Conference
+10002661,University of Missouri-St. Louis,F,169,Great Lakes Valley Conference
+10008207,McKendree University,F,169,Great Lakes Valley Conference
+57,Lewis University,F,169,Great Lakes Valley Conference
+10034316,Rockhurst University,F,169,Great Lakes Valley Conference
+10000408,William Jewell College,F,169,Great Lakes Valley Conference
+126,Truman State University,F,169,Great Lakes Valley Conference
+10005797,Quincy University,F,169,Great Lakes Valley Conference
+10043349,Southwest Baptist University,F,169,Great Lakes Valley Conference
+10002186,Maryville University,F,169,Great Lakes Valley Conference
+242,University of Findlay,M,183,Great Midwest Athletic Conference
+217,Ashland University,M,183,Great Midwest Athletic Conference
+628,Davis and Elkins College,M,183,Great Midwest Athletic Conference
+626,Malone University,M,183,Great Midwest Athletic Conference
+10050205,Walsh University,M,183,Great Midwest Athletic Conference
+242,University of Findlay,F,183,Great Midwest Athletic Conference
+129,Hillsdale College,F,183,Great Midwest Athletic Conference
+217,Ashland University,F,183,Great Midwest Athletic Conference
+628,Davis and Elkins College,F,183,Great Midwest Athletic Conference
+626,Malone University,F,183,Great Midwest Athletic Conference
+10050205,Walsh University,F,183,Great Midwest Athletic Conference
+402,Norwich University,M,167,Great Northeast Athletic Conference
+463,University of Saint Joseph,M,167,Great Northeast Athletic Conference
+481,Regis College (Massachusetts),M,167,Great Northeast Athletic Conference
+238,Elms College,M,167,Great Northeast Athletic Conference
+620,Saint Josephs College (Maine),M,167,Great Northeast Athletic Conference
+487,Simmons University,F,167,Great Northeast Athletic Conference
+402,Norwich University,F,167,Great Northeast Athletic Conference
+463,University of Saint Joseph,F,167,Great Northeast Athletic Conference
+481,Regis College (Massachusetts),F,167,Great Northeast Athletic Conference
+238,Elms College,F,167,Great Northeast Athletic Conference
+620,Saint Josephs College (Maine),F,167,Great Northeast Athletic Conference
+10009436,Albertus Magnus College,F,167,Great Northeast Athletic Conference
+502,Rose-Hulman Institute of Technology,M,179,Heartland Collegiate Athletic Conference
+654,Franklin College,M,179,Heartland Collegiate Athletic Conference
+115,Transylvania University,M,179,Heartland Collegiate Athletic Conference
+10006394,Manchester University,M,179,Heartland Collegiate Athletic Conference
+10008403,Anderson University,M,179,Heartland Collegiate Athletic Conference
+10012517,Hanover College,M,179,Heartland Collegiate Athletic Conference
+10027917,Bluffton University,M,179,Heartland Collegiate Athletic Conference
+654,Franklin College,F,179,Heartland Collegiate Athletic Conference
+502,Rose-Hulman Institute of Technology,F,179,Heartland Collegiate Athletic Conference
+115,Transylvania University,F,179,Heartland Collegiate Athletic Conference
+10008403,Anderson University,F,179,Heartland Collegiate Athletic Conference
+10012517,Hanover College,F,179,Heartland Collegiate Athletic Conference
+10006394,Manchester University,F,179,Heartland Collegiate Athletic Conference
+10027917,Bluffton University,F,179,Heartland Collegiate Athletic Conference
+21,Oakland University,M,10,Horizon League
+181,Indiana University-Indianapolis,M,10,Horizon League
+378,Youngstown State University,M,10,Horizon League
+369,University of Wisconsin-Milwaukee,M,10,Horizon League
+264,Cleveland State University,M,10,Horizon League
+368,University of Wisconsin-Green Bay,M,10,Horizon League
+10039851,Northern Kentucky University,M,10,Horizon League
+21,Oakland University,F,10,Horizon League
+369,University of Wisconsin-Milwaukee,F,10,Horizon League
+181,Indiana University-Indianapolis,F,10,Horizon League
+378,Youngstown State University,F,10,Horizon League
+264,Cleveland State University,F,10,Horizon League
+368,University of Wisconsin-Green Bay,F,10,Horizon League
+10039851,Northern Kentucky University,F,10,Horizon League
+358,Indian River State College,M,11,Independent
+10006392,Southwestern Oregon Community College,M,11,Independent
+10012513,Barton County Community College,M,11,Independent
+623,Iowa Central Community College,M,11,Independent
+365,College of Idaho,M,11,Independent
+8574,Iowa Lakes Community College,M,11,Independent
+648,Jamestown Community College,M,11,Independent
+8463,Warren Wilson College,M,11,Independent
+8469,University of Toronto,M,11,Independent
+358,Indian River State College,F,11,Independent
+10006392,Southwestern Oregon Community College,F,11,Independent
+648,Jamestown Community College,F,11,Independent
+365,College of Idaho,F,11,Independent
+10012513,Barton County Community College,F,11,Independent
+623,Iowa Central Community College,F,11,Independent
+8463,Warren Wilson College,F,11,Independent
+8574,Iowa Lakes Community College,F,11,Independent
+8469,University of Toronto,F,11,Independent
+376,Yale University,M,12,Ivy League
+477,Princeton University,M,12,Ivy League
+134,Harvard University,M,12,Ivy League
+283,Columbia University,M,12,Ivy League
+258,Cornell University,M,12,Ivy League
+416,University of Pennsylvania,M,12,Ivy League
+17,Brown University,M,12,Ivy League
+272,Dartmouth College,M,12,Ivy League
+477,Princeton University,F,12,Ivy League
+134,Harvard University,F,12,Ivy League
+416,University of Pennsylvania,F,12,Ivy League
+17,Brown University,F,12,Ivy League
+376,Yale University,F,12,Ivy League
+272,Dartmouth College,F,12,Ivy League
+258,Cornell University,F,12,Ivy League
+283,Columbia University,F,12,Ivy League
+10001793,Olivet Nazarene University,M,212,Kansas Collegiate Athletic Conference
+10009577,Midland University,M,212,Kansas Collegiate Athletic Conference
+546,Morningside University,M,212,Kansas Collegiate Athletic Conference
+10026352,Aquinas College,M,212,Kansas Collegiate Athletic Conference
+8024,Bethel University (Indiana),M,212,Kansas Collegiate Athletic Conference
+10018098,University of Saint Mary,M,212,Kansas Collegiate Athletic Conference
+10037824,Dordt University,M,212,Kansas Collegiate Athletic Conference
+10020657,Sterling College,M,212,Kansas Collegiate Athletic Conference
+8024,Bethel University (Indiana),F,212,Kansas Collegiate Athletic Conference
+10001793,Olivet Nazarene University,F,212,Kansas Collegiate Athletic Conference
+10018098,University of Saint Mary,F,212,Kansas Collegiate Athletic Conference
+10026352,Aquinas College,F,212,Kansas Collegiate Athletic Conference
+631,College of Saint Mary (NE),F,212,Kansas Collegiate Athletic Conference
+10037824,Dordt University,F,212,Kansas Collegiate Athletic Conference
+546,Morningside University,F,212,Kansas Collegiate Athletic Conference
+10009577,Midland University,F,212,Kansas Collegiate Athletic Conference
+10020657,Sterling College,F,212,Kansas Collegiate Athletic Conference
+278,Drew University,M,153,Landmark Conference
+202,Catholic University,M,153,Landmark Conference
+500,University of Scranton,M,153,Landmark Conference
+314,Susquehanna University,M,153,Landmark Conference
+237,Elizabethtown College,M,153,Landmark Conference
+10005836,Wilkes University,M,153,Landmark Conference
+11,Juniata College,M,153,Landmark Conference
+10025302,Moravian University,M,153,Landmark Conference
+164,Lycoming College,M,153,Landmark Conference
+256,Goucher College,M,153,Landmark Conference
+202,Catholic University,F,153,Landmark Conference
+500,University of Scranton,F,153,Landmark Conference
+314,Susquehanna University,F,153,Landmark Conference
+11,Juniata College,F,153,Landmark Conference
+278,Drew University,F,153,Landmark Conference
+237,Elizabethtown College,F,153,Landmark Conference
+10005836,Wilkes University,F,153,Landmark Conference
+10025302,Moravian University,F,153,Landmark Conference
+164,Lycoming College,F,153,Landmark Conference
+256,Goucher College,F,153,Landmark Conference
+10009914,Saint Ambrose University,M,67,Liberal Arts
+364,Illinois Institute of Technology,M,67,Liberal Arts
+617,University of Minnesota-Morris,M,67,Liberal Arts
+10009914,Saint Ambrose University,F,67,Liberal Arts
+364,Illinois Institute of Technology,F,67,Liberal Arts
+617,University of Minnesota-Morris,F,67,Liberal Arts
+35,Ithaca College,M,181,Liberty League
+30,Rochester Institute of Technology,M,181,Liberty League
+45,Rensselaer Polytechnic Institute,M,181,Liberty League
+263,Clarkson University,M,181,Liberty League
+328,Union College (New York),M,181,Liberty League
+449,Skidmore College,M,181,Liberty League
+333,Vassar College,M,181,Liberty League
+464,St. Lawrence University,M,181,Liberty League
+7,Hobart and William Smith Colleges,M,181,Liberty League
+8478,Bard College,M,181,Liberty League
+35,Ithaca College,F,181,Liberty League
+45,Rensselaer Polytechnic Institute,F,181,Liberty League
+333,Vassar College,F,181,Liberty League
+449,Skidmore College,F,181,Liberty League
+30,Rochester Institute of Technology,F,181,Liberty League
+328,Union College (New York),F,181,Liberty League
+464,St. Lawrence University,F,181,Liberty League
+7,Hobart and William Smith Colleges,F,181,Liberty League
+263,Clarkson University,F,181,Liberty League
+8478,Bard College,F,181,Liberty League
+195,Bridgewater State University,M,210,Little East Conference
+10000208,Husson University,M,210,Little East Conference
+10011027,Maine Maritime Academy,M,210,Little East Conference
+269,Eastern Connecticut State University,M,210,Little East Conference
+177,Keene State College,M,210,Little East Conference
+476,Plymouth State University,M,210,Little East Conference
+8461,University of New England,M,210,Little East Conference
+269,Eastern Connecticut State University,F,210,Little East Conference
+300,Western New England University,F,210,Little East Conference
+177,Keene State College,F,210,Little East Conference
+10000208,Husson University,F,210,Little East Conference
+301,Westfield State University,F,210,Little East Conference
+8461,University of New England,F,210,Little East Conference
+195,Bridgewater State University,F,210,Little East Conference
+10011027,Maine Maritime Academy,F,210,Little East Conference
+422,University of Massachusetts (Dartmouth),F,210,Little East Conference
+476,Plymouth State University,F,210,Little East Conference
+10003261,Rhode Island College,F,210,Little East Conference
+161,Iona University,M,13,Metro Atlantic Athletic Conference
+165,Fairfield University,M,13,Metro Atlantic Athletic Conference
+147,Marist University,M,13,Metro Atlantic Athletic Conference
+434,Niagara University,M,13,Metro Atlantic Athletic Conference
+484,Rider University,M,13,Metro Atlantic Athletic Conference
+196,Canisius University,M,13,Metro Atlantic Athletic Conference
+544,Mount Saint Mary's University (MD),M,13,Metro Atlantic Athletic Conference
+468,Saint Peters University,M,13,Metro Atlantic Athletic Conference
+128,Manhattan University,M,13,Metro Atlantic Athletic Conference
+434,Niagara University,F,13,Metro Atlantic Athletic Conference
+165,Fairfield University,F,13,Metro Atlantic Athletic Conference
+147,Marist University,F,13,Metro Atlantic Athletic Conference
+475,Sacred Heart University,F,13,Metro Atlantic Athletic Conference
+161,Iona University,F,13,Metro Atlantic Athletic Conference
+544,Mount Saint Mary's University (MD),F,13,Metro Atlantic Athletic Conference
+196,Canisius University,F,13,Metro Atlantic Athletic Conference
+484,Rider University,F,13,Metro Atlantic Athletic Conference
+489,Siena College,F,13,Metro Atlantic Athletic Conference
+10002057,Merrimack College,F,13,Metro Atlantic Athletic Conference
+468,Saint Peters University,F,13,Metro Atlantic Athletic Conference
+128,Manhattan University,F,13,Metro Atlantic Athletic Conference
+10010647,Roberts Wesleyan University,M,70,Metropolitan Swimming Conference
+563,Baruch College,M,70,Metropolitan Swimming Conference
+255,Gordon College (MA),M,70,Metropolitan Swimming Conference
+561,State University of New York Maritime College,M,70,Metropolitan Swimming Conference
+218,Brooklyn College,M,70,Metropolitan Swimming Conference
+435,Mount Saint Mary College (New York),M,70,Metropolitan Swimming Conference
+10002012,Sarah Lawrence College,M,70,Metropolitan Swimming Conference
+149,Lehman College,M,70,Metropolitan Swimming Conference
+10010647,Roberts Wesleyan University,F,70,Metropolitan Swimming Conference
+10002012,Sarah Lawrence College,F,70,Metropolitan Swimming Conference
+255,Gordon College (MA),F,70,Metropolitan Swimming Conference
+563,Baruch College,F,70,Metropolitan Swimming Conference
+180,Hunter College,F,70,Metropolitan Swimming Conference
+435,Mount Saint Mary College (New York),F,70,Metropolitan Swimming Conference
+8477,John Jay College,F,70,Metropolitan Swimming Conference
+218,Brooklyn College,F,70,Metropolitan Swimming Conference
+561,State University of New York Maritime College,F,70,Metropolitan Swimming Conference
+149,Lehman College,F,70,Metropolitan Swimming Conference
+55,Calvin University,M,71,Michigan Intercollegiate Athletic Association
+99,Hope College,M,71,Michigan Intercollegiate Athletic Association
+213,Alma College,M,71,Michigan Intercollegiate Athletic Association
+210,Albion College,M,71,Michigan Intercollegiate Athletic Association
+153,Kalamazoo College,M,71,Michigan Intercollegiate Athletic Association
+411,"University of Olivet, The",M,71,Michigan Intercollegiate Athletic Association
+99,Hope College,F,71,Michigan Intercollegiate Athletic Association
+55,Calvin University,F,71,Michigan Intercollegiate Athletic Association
+153,Kalamazoo College,F,71,Michigan Intercollegiate Athletic Association
+213,Alma College,F,71,Michigan Intercollegiate Athletic Association
+210,Albion College,F,71,Michigan Intercollegiate Athletic Association
+411,"University of Olivet, The",F,71,Michigan Intercollegiate Athletic Association
+454,Missouri State University,M,16,Mid-American Conference
+453,Southern Illinois University,M,16,Mid-American Conference
+332,Valparaiso University,M,16,Mid-American Conference
+240,University of Evansville,M,16,Mid-American Conference
+209,"University of Akron, The",F,16,Mid-American Conference
+408,Ohio University,F,16,Mid-American Conference
+221,Ball State University,F,16,Mid-American Conference
+426,Miami University (Ohio),F,16,Mid-American Conference
+185,University at Buffalo,F,16,Mid-American Conference
+235,Eastern Michigan University,F,16,Mid-American Conference
+319,The University of Toledo,F,16,Mid-American Conference
+230,Bowling Green State University,F,16,Mid-American Conference
+421,University of Massachusetts (Amherst),F,16,Mid-American Conference
+387,University of the Cumberlands,M,178,Mid-South Conference
+641,Lindsey Wilson University,M,178,Mid-South Conference
+541,Campbellsville University,M,178,Mid-South Conference
+10009088,Indiana Wesleyan University,M,178,Mid-South Conference
+10023753,Shawnee State University,M,178,Mid-South Conference
+10025443,Midway University,M,178,Mid-South Conference
+10050104,Oakland City University,M,178,Mid-South Conference
+387,University of the Cumberlands,F,178,Mid-South Conference
+641,Lindsey Wilson University,F,178,Mid-South Conference
+10009088,Indiana Wesleyan University,F,178,Mid-South Conference
+10025443,Midway University,F,178,Mid-South Conference
+10023753,Shawnee State University,F,178,Mid-South Conference
+541,Campbellsville University,F,178,Mid-South Conference
+10050104,Oakland City University,F,178,Mid-South Conference
+392,York College (Pennsylvania),M,160,Middle Atlantic Conference
+313,Stevens Institute,M,160,Middle Atlantic Conference
+222,Arcadia University,M,160,Middle Atlantic Conference
+267,Misericordia University,M,160,Middle Atlantic Conference
+308,Widener University,M,160,Middle Atlantic Conference
+568,Messiah University,M,160,Middle Atlantic Conference
+10004803,Stevenson University,M,160,Middle Atlantic Conference
+175,Kings College (Pennsylvania),M,160,Middle Atlantic Conference
+171,Hood College,M,160,Middle Atlantic Conference
+143,Lebanon Valley College,M,160,Middle Atlantic Conference
+241,"Fairleigh Dickinson University, Madison",M,160,Middle Atlantic Conference
+313,Stevens Institute,F,160,Middle Atlantic Conference
+267,Misericordia University,F,160,Middle Atlantic Conference
+392,York College (Pennsylvania),F,160,Middle Atlantic Conference
+568,Messiah University,F,160,Middle Atlantic Conference
+222,Arcadia University,F,160,Middle Atlantic Conference
+308,Widener University,F,160,Middle Atlantic Conference
+241,"Fairleigh Dickinson University, Madison",F,160,Middle Atlantic Conference
+10004803,Stevenson University,F,160,Middle Atlantic Conference
+171,Hood College,F,160,Middle Atlantic Conference
+143,Lebanon Valley College,F,160,Middle Atlantic Conference
+175,Kings College (Pennsylvania),F,160,Middle Atlantic Conference
+2,Grinnell College,M,76,Midwest Conference
+10033686,Milwaukee School of Engineering,M,76,Midwest Conference
+15,Lake Forest College,M,76,Midwest Conference
+343,St Norbert College,M,76,Midwest Conference
+612,Illinois College,M,76,Midwest Conference
+361,Monmouth College,M,76,Midwest Conference
+140,Lawrence University,M,76,Midwest Conference
+223,Beloit College,M,76,Midwest Conference
+485,Ripon College,M,76,Midwest Conference
+2,Grinnell College,F,76,Midwest Conference
+15,Lake Forest College,F,76,Midwest Conference
+343,St Norbert College,F,76,Midwest Conference
+10033686,Milwaukee School of Engineering,F,76,Midwest Conference
+612,Illinois College,F,76,Midwest Conference
+361,Monmouth College,F,76,Midwest Conference
+223,Beloit College,F,76,Midwest Conference
+140,Lawrence University,F,76,Midwest Conference
+485,Ripon College,F,76,Midwest Conference
+88,Gustavus Adolphus College,M,77,Minnesota Intercollegiate Athletic Conference
+461,Saint Johns University,M,77,Minnesota Intercollegiate Athletic Conference
+197,Carleton College,M,77,Minnesota Intercollegiate Athletic Conference
+5,Macalester College,M,77,Minnesota Intercollegiate Athletic Conference
+12,St Olaf College,M,77,Minnesota Intercollegiate Athletic Conference
+139,Hamline University,M,77,Minnesota Intercollegiate Athletic Conference
+88,Gustavus Adolphus College,F,77,Minnesota Intercollegiate Athletic Conference
+5,Macalester College,F,77,Minnesota Intercollegiate Athletic Conference
+12,St Olaf College,F,77,Minnesota Intercollegiate Athletic Conference
+456,College of Saint Benedict,F,77,Minnesota Intercollegiate Athletic Conference
+197,Carleton College,F,77,Minnesota Intercollegiate Athletic Conference
+458,St Catherine University,F,77,Minnesota Intercollegiate Athletic Conference
+139,Hamline University,F,77,Minnesota Intercollegiate Athletic Conference
+270,Concordia College-Moorhead,F,77,Minnesota Intercollegiate Athletic Conference
+559,Augsburg University,F,77,Minnesota Intercollegiate Athletic Conference
+426,Miami University (Ohio),M,17,Missouri Valley Conference
+454,Missouri State University,M,17,Missouri Valley Conference
+453,Southern Illinois University,M,17,Missouri Valley Conference
+221,Ball State University,M,17,Missouri Valley Conference
+421,University of Massachusetts (Amherst),M,17,Missouri Valley Conference
+158,University of Illinois at Chicago,M,17,Missouri Valley Conference
+332,Valparaiso University,M,17,Missouri Valley Conference
+240,University of Evansville,M,17,Missouri Valley Conference
+453,Southern Illinois University,F,17,Missouri Valley Conference
+10007691,Indiana State University,F,17,Missouri Valley Conference
+454,Missouri State University,F,17,Missouri Valley Conference
+158,University of Illinois at Chicago,F,17,Missouri Valley Conference
+216,University of Arkansas-Little Rock,F,17,Missouri Valley Conference
+400,University of Northern Iowa,F,17,Missouri Valley Conference
+172,Illinois State University,F,17,Missouri Valley Conference
+240,University of Evansville,F,17,Missouri Valley Conference
+332,Valparaiso University,F,17,Missouri Valley Conference
+304,Wheeling University,M,204,Mountain East Conference
+233,Frostburg State University,M,204,Mountain East Conference
+61,Salem University,M,204,Mountain East Conference
+205,Fairmont State University,M,204,Mountain East Conference
+295,West Virginia Wesleyan College,M,204,Mountain East Conference
+233,Frostburg State University,F,204,Mountain East Conference
+205,Fairmont State University,F,204,Mountain East Conference
+304,Wheeling University,F,204,Mountain East Conference
+61,Salem University,F,204,Mountain East Conference
+295,West Virginia Wesleyan College,F,204,Mountain East Conference
+440,"University of Nevada, Las Vegas (UNLV)",M,163,Mountain Pacific Sports Federation
+374,University of Wyoming,M,163,Mountain Pacific Sports Federation
+337,U.S. Air Force Academy,M,163,Mountain Pacific Sports Federation
+385,California Baptist University,M,163,Mountain Pacific Sports Federation
+413,University of the Pacific,M,163,Mountain Pacific Sports Federation
+154,University of Incarnate Word,M,163,Mountain Pacific Sports Federation
+10049846,Saint Mary's California,M,163,Mountain Pacific Sports Federation
+444,New Mexico State University,F,163,Mountain Pacific Sports Federation
+399,University of Northern Colorado,F,163,Mountain Pacific Sports Federation
+398,Northern Arizona University,F,163,Mountain Pacific Sports Federation
+519,University of Idaho,F,163,Mountain Pacific Sports Federation
+385,California Baptist University,F,163,Mountain Pacific Sports Federation
+10008406,Utah Tech University,F,163,Mountain Pacific Sports Federation
+417,Pepperdine University,F,163,Mountain Pacific Sports Federation
+413,University of the Pacific,F,163,Mountain Pacific Sports Federation
+154,University of Incarnate Word,F,163,Mountain Pacific Sports Federation
+10036961,University of Texas Rio Grande Valley,F,163,Mountain Pacific Sports Federation
+10009635,Saint Mary's College of California,F,163,Mountain Pacific Sports Federation
+10049846,Saint Mary's California,F,163,Mountain Pacific Sports Federation
+287,Washington State University,F,18,Mountain West Conference
+441,University of Nevada,F,18,Mountain West Conference
+440,"University of Nevada, Las Vegas (UNLV)",F,18,Mountain West Conference
+496,San Diego State University,F,18,Mountain West Conference
+374,University of Wyoming,F,18,Mountain West Conference
+390,Fresno State,F,18,Mountain West Conference
+268,Colorado State University,F,18,Mountain West Conference
+337,U.S. Air Force Academy,F,18,Mountain West Conference
+548,Grand Canyon University,F,18,Mountain West Conference
+499,San Jose State University,F,18,Mountain West Conference
+445,University of New Mexico,F,18,Mountain West Conference
+119,Williams College,M,85,New England Small College Athletic Conference
+76,Bates College,M,85,New England Small College Athletic Conference
+49,Tufts University,M,85,New England Small College Athletic Conference
+103,Amherst College,M,85,New England Small College Athletic Conference
+74,Connecticut College,M,85,New England Small College Athletic Conference
+84,Hamilton College,M,85,New England Small College Athletic Conference
+36,Bowdoin College,M,85,New England Small College Athletic Conference
+69,Colby College,M,85,New England Small College Athletic Conference
+101,Middlebury College,M,85,New England Small College Athletic Conference
+321,Trinity College (Connecticut),M,85,New England Small College Athletic Conference
+293,Wesleyan University,M,85,New England Small College Athletic Conference
+119,Williams College,F,85,New England Small College Athletic Conference
+49,Tufts University,F,85,New England Small College Athletic Conference
+69,Colby College,F,85,New England Small College Athletic Conference
+103,Amherst College,F,85,New England Small College Athletic Conference
+101,Middlebury College,F,85,New England Small College Athletic Conference
+36,Bowdoin College,F,85,New England Small College Athletic Conference
+84,Hamilton College,F,85,New England Small College Athletic Conference
+74,Connecticut College,F,85,New England Small College Athletic Conference
+76,Bates College,F,85,New England Small College Athletic Conference
+293,Wesleyan University,F,85,New England Small College Athletic Conference
+321,Trinity College (Connecticut),F,85,New England Small College Athletic Conference
+14,Massachusetts Institute of Technology,M,86,New England Women's and Men's Athletics Conference
+324,U.S. Coast Guard Academy,M,86,New England Women's and Men's Athletics Conference
+303,Wheaton College (Massachusetts),M,86,New England Women's and Men's Athletics Conference
+207,Babson College,M,86,New England Women's and Men's Athletics Conference
+372,Worcester Polytechnic Institute,M,86,New England Women's and Men's Athletics Conference
+24,Springfield College,M,86,New England Women's and Men's Athletics Conference
+262,Clark University,M,86,New England Women's and Men's Athletics Conference
+14,Massachusetts Institute of Technology,F,86,New England Women's and Men's Athletics Conference
+324,U.S. Coast Guard Academy,F,86,New England Women's and Men's Athletics Conference
+291,Wellesley College,F,86,New England Women's and Men's Athletics Conference
+303,Wheaton College (Massachusetts),F,86,New England Women's and Men's Athletics Conference
+372,Worcester Polytechnic Institute,F,86,New England Women's and Men's Athletics Conference
+207,Babson College,F,86,New England Women's and Men's Athletics Conference
+450,Smith College,F,86,New England Women's and Men's Athletics Conference
+24,Springfield College,F,86,New England Women's and Men's Athletics Conference
+262,Clark University,F,86,New England Women's and Men's Athletics Conference
+420,Mount Holyoke College,F,86,New England Women's and Men's Athletics Conference
+52,"College of New Jersey, The",M,218,New Jersey Athletic Conference
+495,Salisbury University,M,218,New Jersey Athletic Conference
+311,U.S. Merchant Marine Academy,M,218,New Jersey Athletic Conference
+488,Rowan University,M,218,New Jersey Athletic Conference
+144,University of Mary Washington,M,218,New Jersey Athletic Conference
+560,Roger Williams University,M,218,New Jersey Athletic Conference
+433,Montclair State University,M,218,New Jersey Athletic Conference
+538,Ramapo College of New Jersey,M,218,New Jersey Athletic Conference
+391,William Paterson University of New Jersey,M,218,New Jersey Athletic Conference
+495,Salisbury University,F,218,New Jersey Athletic Conference
+178,Kean University,F,218,New Jersey Athletic Conference
+488,Rowan University,F,218,New Jersey Athletic Conference
+144,University of Mary Washington,F,218,New Jersey Athletic Conference
+433,Montclair State University,F,218,New Jersey Athletic Conference
+52,"College of New Jersey, The",F,218,New Jersey Athletic Conference
+560,Roger Williams University,F,218,New Jersey Athletic Conference
+311,U.S. Merchant Marine Academy,F,218,New Jersey Athletic Conference
+538,Ramapo College of New Jersey,F,218,New Jersey Athletic Conference
+391,William Paterson University of New Jersey,F,218,New Jersey Athletic Conference
+48,Delta State University,M,88,New South Intercollegiate Swim Conference
+58,Henderson State University,M,88,New South Intercollegiate Swim Conference
+412,Ouachita Baptist University,M,88,New South Intercollegiate Swim Conference
+10002824,University of West Florida,F,88,New South Intercollegiate Swim Conference
+48,Delta State University,F,88,New South Intercollegiate Swim Conference
+412,Ouachita Baptist University,F,88,New South Intercollegiate Swim Conference
+58,Henderson State University,F,88,New South Intercollegiate Swim Conference
+10000208,Husson University,M,213,North Atlantic Conference
+10011027,Maine Maritime Academy,M,213,North Atlantic Conference
+255,Gordon College (MA),M,213,North Atlantic Conference
+10000208,Husson University,F,213,North Atlantic Conference
+255,Gordon College (MA),F,213,North Atlantic Conference
+10011027,Maine Maritime Academy,F,213,North Atlantic Conference
+118,Denison University,M,94,North Coast Athletic Conference
+125,Kenyon College,M,94,North Coast Athletic Conference
+150,John Carroll University,M,94,North Coast Athletic Conference
+274,DePauw University,M,94,North Coast Athletic Conference
+108,College of Wooster,M,94,North Coast Athletic Conference
+298,Wabash College,M,94,North Coast Athletic Conference
+404,Oberlin College,M,94,North Coast Athletic Conference
+409,Ohio Wesleyan University,M,94,North Coast Athletic Conference
+9,Wittenberg University,M,94,North Coast Athletic Conference
+125,Kenyon College,F,94,North Coast Athletic Conference
+118,Denison University,F,94,North Coast Athletic Conference
+274,DePauw University,F,94,North Coast Athletic Conference
+150,John Carroll University,F,94,North Coast Athletic Conference
+108,College of Wooster,F,94,North Coast Athletic Conference
+9,Wittenberg University,F,94,North Coast Athletic Conference
+404,Oberlin College,F,94,North Coast Athletic Conference
+409,Ohio Wesleyan University,F,94,North Coast Athletic Conference
+357,University of Bridgeport,M,168,Northeast 10
+442,Adelphi University,M,168,Northeast 10
+225,Bentley University,M,168,Northeast 10
+81,Southern Connecticut State University,M,168,Northeast 10
+467,Saint Michaels College,M,168,Northeast 10
+610,Pace University,M,168,Northeast 10
+312,College of Staten Island,M,168,Northeast 10
+10028852,Felician University,M,168,Northeast 10
+564,Assumption University,M,168,Northeast 10
+81,Southern Connecticut State University,F,168,Northeast 10
+10028852,Felician University,F,168,Northeast 10
+225,Bentley University,F,168,Northeast 10
+610,Pace University,F,168,Northeast 10
+357,University of Bridgeport,F,168,Northeast 10
+442,Adelphi University,F,168,Northeast 10
+564,Assumption University,F,168,Northeast 10
+467,Saint Michaels College,F,168,Northeast 10
+312,College of Staten Island,F,168,Northeast 10
+179,Howard University,M,19,Northeast Conference
+10005731,Long Island University,M,19,Northeast Conference
+296,Wagner College,M,19,Northeast Conference
+145,Le Moyne College,M,19,Northeast Conference
+10023198,Stonehill College,M,19,Northeast Conference
+179,Howard University,F,19,Northeast Conference
+203,Central Connecticut State University,F,19,Northeast Conference
+296,Wagner College,F,19,Northeast Conference
+10005731,Long Island University,F,19,Northeast Conference
+474,Saint Francis University (Pennsylvania),F,19,Northeast Conference
+10023198,Stonehill College,F,19,Northeast Conference
+145,Le Moyne College,F,19,Northeast Conference
+71,Minnesota State University-Mankato,F,170,Northern Sun Intercollegiate Conference
+96,Saint Cloud State University,F,170,Northern Sun Intercollegiate Conference
+10007689,University of Sioux Falls,F,170,Northern Sun Intercollegiate Conference
+10007690,Augustana University,F,170,Northern Sun Intercollegiate Conference
+10007748,University of Mary,F,170,Northern Sun Intercollegiate Conference
+10021455,Concordia University-Saint Paul,F,170,Northern Sun Intercollegiate Conference
+41,Minnesota State University Moorhead,F,170,Northern Sun Intercollegiate Conference
+10009663,Southwest Minnesota State University,F,170,Northern Sun Intercollegiate Conference
+10025387,University of Jamestown,F,170,Northern Sun Intercollegiate Conference
+618,Northern State University,F,170,Northern Sun Intercollegiate Conference
+40,Whitworth University,M,96,Northwest Conference
+91,University of Puget Sound,M,96,Northwest Conference
+306,Whitman College,M,96,Northwest Conference
+135,Linfield University,M,96,Northwest Conference
+414,Pacific Lutheran University,M,96,Northwest Conference
+309,Willamette University,M,96,Northwest Conference
+137,Lewis and Clark College,M,96,Northwest Conference
+10011286,George Fox University,M,96,Northwest Conference
+359,Pacific University,M,96,Northwest Conference
+40,Whitworth University,F,96,Northwest Conference
+91,University of Puget Sound,F,96,Northwest Conference
+10011286,George Fox University,F,96,Northwest Conference
+135,Linfield University,F,96,Northwest Conference
+306,Whitman College,F,96,Northwest Conference
+414,Pacific Lutheran University,F,96,Northwest Conference
+309,Willamette University,F,96,Northwest Conference
+137,Lewis and Clark College,F,96,Northwest Conference
+359,Pacific University,F,96,Northwest Conference
+70,University of Mount Union,M,98,Ohio Athletic Conference
+406,Ohio Northern University,M,98,Ohio Athletic Conference
+325,Wilmington College (Ohio),M,98,Ohio Athletic Conference
+1,Baldwin-Wallace University,M,98,Ohio Athletic Conference
+10033495,Heidelberg University,M,98,Ohio Athletic Conference
+70,University of Mount Union,F,98,Ohio Athletic Conference
+1,Baldwin-Wallace University,F,98,Ohio Athletic Conference
+406,Ohio Northern University,F,98,Ohio Athletic Conference
+10033495,Heidelberg University,F,98,Ohio Athletic Conference
+325,Wilmington College (Ohio),F,98,Ohio Athletic Conference
+286,Washington and Lee University,M,100,Old Dominion Athletic Conference
+10016800,University of Lynchburg,M,100,Old Dominion Athletic Conference
+10009616,Roanoke College,M,100,Old Dominion Athletic Conference
+549,Bridgewater College,M,100,Old Dominion Athletic Conference
+26,Randolph-Macon College,M,100,Old Dominion Athletic Conference
+609,Randolph College,M,100,Old Dominion Athletic Conference
+10010227,Virginia Wesleyan University,M,100,Old Dominion Athletic Conference
+10001913,Hampden-Sydney College,M,100,Old Dominion Athletic Conference
+282,Greensboro College,M,100,Old Dominion Athletic Conference
+286,Washington and Lee University,F,100,Old Dominion Athletic Conference
+26,Randolph-Macon College,F,100,Old Dominion Athletic Conference
+10016800,University of Lynchburg,F,100,Old Dominion Athletic Conference
+10009616,Roanoke College,F,100,Old Dominion Athletic Conference
+549,Bridgewater College,F,100,Old Dominion Athletic Conference
+10010227,Virginia Wesleyan University,F,100,Old Dominion Athletic Conference
+609,Randolph College,F,100,Old Dominion Athletic Conference
+167,Hollins University,F,100,Old Dominion Athletic Conference
+316,Sweet Briar College,F,100,Old Dominion Athletic Conference
+282,Greensboro College,F,100,Old Dominion Athletic Conference
+637,Guilford College,F,100,Old Dominion Athletic Conference
+10001913,Hampden-Sydney College,F,100,Old Dominion Athletic Conference
+182,University of California-Santa Cruz,M,101,Pacific Collegiate Swim Conference
+10011277,The Master's University,M,101,Pacific Collegiate Swim Conference
+384,Biola University,M,101,Pacific Collegiate Swim Conference
+534,Fresno Pacific University,M,101,Pacific Collegiate Swim Conference
+10010278,Arizona Christian University,M,101,Pacific Collegiate Swim Conference
+365,College of Idaho,M,101,Pacific Collegiate Swim Conference
+10020248,Ottawa University of Arizona,M,101,Pacific Collegiate Swim Conference
+362,Soka University,M,101,Pacific Collegiate Swim Conference
+10023246,Simpson University (CA),M,101,Pacific Collegiate Swim Conference
+542,Concordia University Irvine,M,101,Pacific Collegiate Swim Conference
+190,California State University East Bay,F,101,Pacific Collegiate Swim Conference
+639,Azusa Pacific University,F,101,Pacific Collegiate Swim Conference
+528,University of Alaska-Fairbanks,F,101,Pacific Collegiate Swim Conference
+182,University of California-Santa Cruz,F,101,Pacific Collegiate Swim Conference
+384,Biola University,F,101,Pacific Collegiate Swim Conference
+10011277,The Master's University,F,101,Pacific Collegiate Swim Conference
+10016869,Westmont College,F,101,Pacific Collegiate Swim Conference
+534,Fresno Pacific University,F,101,Pacific Collegiate Swim Conference
+10010278,Arizona Christian University,F,101,Pacific Collegiate Swim Conference
+542,Concordia University Irvine,F,101,Pacific Collegiate Swim Conference
+365,College of Idaho,F,101,Pacific Collegiate Swim Conference
+10020248,Ottawa University of Arizona,F,101,Pacific Collegiate Swim Conference
+362,Soka University,F,101,Pacific Collegiate Swim Conference
+10023246,Simpson University (CA),F,101,Pacific Collegiate Swim Conference
+327,U.S. Naval Academy (Navy),M,131,Patriot League
+326,U.S. Military Academy (Army),M,131,Patriot League
+156,Loyola University (Maryland),M,131,Patriot League
+229,Boston University,M,131,Patriot League
+184,Bucknell University,M,131,Patriot League
+141,Lehigh University,M,131,Patriot League
+170,College of the Holy Cross,M,131,Patriot League
+130,Lafayette College,M,131,Patriot League
+266,Colgate University,M,131,Patriot League
+214,American University,M,131,Patriot League
+326,U.S. Military Academy (Army),F,131,Patriot League
+327,U.S. Naval Academy (Navy),F,131,Patriot League
+184,Bucknell University,F,131,Patriot League
+229,Boston University,F,131,Patriot League
+156,Loyola University (Maryland),F,131,Patriot League
+266,Colgate University,F,131,Patriot League
+141,Lehigh University,F,131,Patriot League
+214,American University,F,131,Patriot League
+170,College of the Holy Cross,F,131,Patriot League
+130,Lafayette College,F,131,Patriot League
+109,West Chester University,M,105,Pennsylvania State Athletic Conference
+248,Gannon University,M,105,Pennsylvania State Athletic Conference
+114,Clarion University,M,105,Pennsylvania State Athletic Conference
+227,Bloomsburg University,M,105,Pennsylvania State Athletic Conference
+79,Indiana University of Pennsylvania,M,105,Pennsylvania State Athletic Conference
+93,Shippensburg University,M,105,Pennsylvania State Athletic Conference
+236,PennWest Edinboro University,M,105,Pennsylvania State Athletic Conference
+151,Kutztown University,M,105,Pennsylvania State Athletic Conference
+10047600,University of Pittsburgh-Johnstown,M,105,Pennsylvania State Athletic Conference
+109,West Chester University,F,105,Pennsylvania State Athletic Conference
+227,Bloomsburg University,F,105,Pennsylvania State Athletic Conference
+79,Indiana University of Pennsylvania,F,105,Pennsylvania State Athletic Conference
+114,Clarion University,F,105,Pennsylvania State Athletic Conference
+236,PennWest Edinboro University,F,105,Pennsylvania State Athletic Conference
+248,Gannon University,F,105,Pennsylvania State Athletic Conference
+151,Kutztown University,F,105,Pennsylvania State Athletic Conference
+271,East Stroudsburg University,F,105,Pennsylvania State Athletic Conference
+428,Millersville University,F,105,Pennsylvania State Athletic Conference
+93,Shippensburg University,F,105,Pennsylvania State Athletic Conference
+67,Pennsylvania Western-California,F,105,Pennsylvania State Athletic Conference
+160,Lock Haven University,F,105,Pennsylvania State Athletic Conference
+10047600,University of Pittsburgh-Johnstown,F,105,Pennsylvania State Athletic Conference
+42,Grove City College,M,106,Presidents Athletic Conference
+8474,Saint Vincent College,M,106,Presidents Athletic Conference
+323,Washington & Jefferson College,M,106,Presidents Athletic Conference
+302,Westminster College,M,106,Presidents Athletic Conference
+66,Hiram College,M,106,Presidents Athletic Conference
+636,Chatham University,M,106,Presidents Athletic Conference
+19,Allegheny College,M,106,Presidents Athletic Conference
+226,Bethany College (WV),M,106,Presidents Athletic Conference
+42,Grove City College,F,106,Presidents Athletic Conference
+8474,Saint Vincent College,F,106,Presidents Athletic Conference
+302,Westminster College,F,106,Presidents Athletic Conference
+19,Allegheny College,F,106,Presidents Athletic Conference
+636,Chatham University,F,106,Presidents Athletic Conference
+323,Washington & Jefferson College,F,106,Presidents Athletic Conference
+10001801,Franciscan University of Steubenville,F,106,Presidents Athletic Conference
+66,Hiram College,F,106,Presidents Athletic Conference
+226,Bethany College (WV),F,106,Presidents Athletic Conference
+517,Colorado Mesa University,M,161,Rocky Mountain Athletic Conference
+50,Colorado School of Mines,M,161,Rocky Mountain Athletic Conference
+10009480,Oklahoma Christian University,M,161,Rocky Mountain Athletic Conference
+525,Simon Fraser University,M,161,Rocky Mountain Athletic Conference
+529,University of Texas Permian Basin,M,161,Rocky Mountain Athletic Conference
+627,Adams State University,M,161,Rocky Mountain Athletic Conference
+517,Colorado Mesa University,F,161,Rocky Mountain Athletic Conference
+525,Simon Fraser University,F,161,Rocky Mountain Athletic Conference
+50,Colorado School of Mines,F,161,Rocky Mountain Athletic Conference
+10009480,Oklahoma Christian University,F,161,Rocky Mountain Athletic Conference
+10001999,Western Colorado University,F,161,Rocky Mountain Athletic Conference
+10005046,Colorado State University Pueblo,F,161,Rocky Mountain Athletic Conference
+438,University of Nebraska at Kearney,F,161,Rocky Mountain Athletic Conference
+529,University of Texas Permian Basin,F,161,Rocky Mountain Athletic Conference
+627,Adams State University,F,161,Rocky Mountain Athletic Conference
+311,U.S. Merchant Marine Academy,M,166,Skyline Conference
+561,State University of New York Maritime College,M,166,Skyline Conference
+435,Mount Saint Mary College (New York),M,166,Skyline Conference
+10002012,Sarah Lawrence College,M,166,Skyline Conference
+8479,Purchase College,M,166,Skyline Conference
+311,U.S. Merchant Marine Academy,F,166,Skyline Conference
+10002012,Sarah Lawrence College,F,166,Skyline Conference
+435,Mount Saint Mary College (New York),F,166,Skyline Conference
+10003381,Saint Joseph's University (Long Island),F,166,Skyline Conference
+561,State University of New York Maritime College,F,166,Skyline Conference
+8479,Purchase College,F,166,Skyline Conference
+46,Wingate University,M,217,South Atlantic Conference
+201,Catawba College,M,217,South Atlantic Conference
+10003343,Carson-Newman University,M,217,South Atlantic Conference
+550,Lenoir-Rhyne University,M,217,South Atlantic Conference
+536,Mars Hill University,M,217,South Atlantic Conference
+201,Catawba College,F,217,South Atlantic Conference
+46,Wingate University,F,217,South Atlantic Conference
+10003343,Carson-Newman University,F,217,South Atlantic Conference
+550,Lenoir-Rhyne University,F,217,South Atlantic Conference
+536,Mars Hill University,F,217,South Atlantic Conference
+105,University of Texas,M,22,Southeastern Conference
+117,University of Florida,M,22,Southeastern Conference
+124,University of Georgia,M,22,Southeastern Conference
+44,University of Tennessee,M,22,Southeastern Conference
+176,University of Kentucky,M,22,Southeastern Conference
+65,University of Alabama,M,22,Southeastern Conference
+127,Auburn University,M,22,Southeastern Conference
+56,Louisiana State University,M,22,Southeastern Conference
+80,Texas A&M University,M,22,Southeastern Conference
+431,University of Missouri,M,22,Southeastern Conference
+95,University of South Carolina,M,22,Southeastern Conference
+105,University of Texas,F,22,Southeastern Conference
+44,University of Tennessee,F,22,Southeastern Conference
+117,University of Florida,F,22,Southeastern Conference
+56,Louisiana State University,F,22,Southeastern Conference
+65,University of Alabama,F,22,Southeastern Conference
+124,University of Georgia,F,22,Southeastern Conference
+95,University of South Carolina,F,22,Southeastern Conference
+127,Auburn University,F,22,Southeastern Conference
+80,Texas A&M University,F,22,Southeastern Conference
+431,University of Missouri,F,22,Southeastern Conference
+176,University of Kentucky,F,22,Southeastern Conference
+47,University of Arkansas-Fayetteville,F,22,Southeastern Conference
+532,Vanderbilt University,F,22,Southeastern Conference
+322,Trinity University (Texas),M,176,Southern Athletic Association
+540,Rhodes College,M,176,Southern Athletic Association
+244,Centre College,M,176,Southern Athletic Association
+344,University of the South (Sewanee),M,176,Southern Athletic Association
+611,Berry College,M,176,Southern Athletic Association
+455,Southwestern University,M,176,Southern Athletic Association
+10016801,Millsaps College,M,176,Southern Athletic Association
+322,Trinity University (Texas),F,176,Southern Athletic Association
+540,Rhodes College,F,176,Southern Athletic Association
+244,Centre College,F,176,Southern Athletic Association
+344,University of the South (Sewanee),F,176,Southern Athletic Association
+455,Southwestern University,F,176,Southern Athletic Association
+611,Berry College,F,176,Southern Athletic Association
+10016801,Millsaps College,F,176,Southern Athletic Association
+10,Pomona-Pitzer Colleges,M,115,Southern California Intercollegiate Athletic Conference
+261,Claremont McKenna-Harvey Mudd-Scripps Colleges,M,115,Southern California Intercollegiate Athletic Conference
+85,Chapman University,M,115,Southern California Intercollegiate Athletic Conference
+307,Whittier College,M,115,Southern California Intercollegiate Athletic Conference
+187,California Institute of Technology,M,115,Southern California Intercollegiate Athletic Conference
+619,California Lutheran University,M,115,Southern California Intercollegiate Athletic Conference
+3,University of Redlands,M,115,Southern California Intercollegiate Athletic Conference
+419,Occidental College,M,115,Southern California Intercollegiate Athletic Conference
+131,University of La Verne,M,115,Southern California Intercollegiate Athletic Conference
+10,Pomona-Pitzer Colleges,F,115,Southern California Intercollegiate Athletic Conference
+261,Claremont McKenna-Harvey Mudd-Scripps Colleges,F,115,Southern California Intercollegiate Athletic Conference
+85,Chapman University,F,115,Southern California Intercollegiate Athletic Conference
+619,California Lutheran University,F,115,Southern California Intercollegiate Athletic Conference
+187,California Institute of Technology,F,115,Southern California Intercollegiate Athletic Conference
+419,Occidental College,F,115,Southern California Intercollegiate Athletic Conference
+307,Whittier College,F,115,Southern California Intercollegiate Athletic Conference
+3,University of Redlands,F,115,Southern California Intercollegiate Athletic Conference
+131,University of La Verne,F,115,Southern California Intercollegiate Athletic Conference
+13,Colorado College,M,116,Southern Collegiate Athletic Conference
+10030705,University of Saint Thomas (TX),M,116,Southern Collegiate Athletic Conference
+381,Asbury University,M,116,Southern Collegiate Athletic Conference
+423,McMurry University,M,116,Southern Collegiate Athletic Conference
+142,Hendrix College,M,116,Southern Collegiate Athletic Conference
+219,Austin College,M,116,Southern Collegiate Athletic Conference
+520,Centenary College,M,116,Southern Collegiate Athletic Conference
+10008710,University of the Ozarks,M,116,Southern Collegiate Athletic Conference
+13,Colorado College,F,116,Southern Collegiate Athletic Conference
+381,Asbury University,F,116,Southern Collegiate Athletic Conference
+219,Austin College,F,116,Southern Collegiate Athletic Conference
+10008710,University of the Ozarks,F,116,Southern Collegiate Athletic Conference
+520,Centenary College,F,116,Southern Collegiate Athletic Conference
+142,Hendrix College,F,116,Southern Collegiate Athletic Conference
+10030705,University of Saint Thomas (TX),F,116,Southern Collegiate Athletic Conference
+423,McMurry University,F,116,Southern Collegiate Athletic Conference
+340,Pennsylvania State University-Behrend College,M,120,State University of New York Athletic Conference
+471,State University of New York at Cortland,M,120,State University of New York Athletic Conference
+16,State University of New York at Oswego,M,120,State University of New York Athletic Conference
+415,Pennsylvania State University - Altoona,M,120,State University of New York Athletic Conference
+472,State University of New York at New Paltz,M,120,State University of New York Athletic Conference
+366,state University of New York at Oneonta,M,120,State University of New York Athletic Conference
+537,University of Pittsburgh-Bradford,M,120,State University of New York Athletic Conference
+501,State University of New York at Potsdam,M,120,State University of New York Athletic Conference
+389,Fredonia State University,M,120,State University of New York Athletic Conference
+652,State University of New York at Delhi,M,120,State University of New York Athletic Conference
+340,Pennsylvania State University-Behrend College,F,120,State University of New York Athletic Conference
+471,State University of New York at Cortland,F,120,State University of New York Athletic Conference
+16,State University of New York at Oswego,F,120,State University of New York Athletic Conference
+415,Pennsylvania State University - Altoona,F,120,State University of New York Athletic Conference
+472,State University of New York at New Paltz,F,120,State University of New York Athletic Conference
+366,state University of New York at Oneonta,F,120,State University of New York Athletic Conference
+501,State University of New York at Potsdam,F,120,State University of New York Athletic Conference
+537,University of Pittsburgh-Bradford,F,120,State University of New York Athletic Conference
+389,Fredonia State University,F,120,State University of New York Athletic Conference
+652,State University of New York at Delhi,F,120,State University of New York Athletic Conference
+83,University of South Dakota,M,14,Summit League
+276,University of Denver,M,14,Summit League
+97,"University of Nebraska, Omaha",M,14,Summit League
+451,South Dakota State University,M,14,Summit League
+469,University of Saint Thomas (MN),M,14,Summit League
+234,Eastern Illinois University,M,14,Summit League
+10028295,University of Southern Indiana,M,14,Summit League
+276,University of Denver,F,14,Summit League
+83,University of South Dakota,F,14,Summit League
+97,"University of Nebraska, Omaha",F,14,Summit League
+451,South Dakota State University,F,14,Summit League
+469,University of Saint Thomas (MN),F,14,Summit League
+10028295,University of Southern Indiana,F,14,Summit League
+234,Eastern Illinois University,F,14,Summit League
+104,University of Tampa,M,164,Sunshine State Conference
+10002387,Lynn University,M,164,Sunshine State Conference
+354,Florida Southern College,M,164,Sunshine State Conference
+655,Nova Southeastern University,M,164,Sunshine State Conference
+10001800,Florida Tech,M,164,Sunshine State Conference
+486,Rollins College,M,164,Sunshine State Conference
+10034633,Barry University,M,164,Sunshine State Conference
+655,Nova Southeastern University,F,164,Sunshine State Conference
+104,University of Tampa,F,164,Sunshine State Conference
+10002387,Lynn University,F,164,Sunshine State Conference
+354,Florida Southern College,F,164,Sunshine State Conference
+486,Rollins College,F,164,Sunshine State Conference
+10001800,Florida Tech,F,164,Sunshine State Conference
+10034633,Barry University,F,164,Sunshine State Conference
+339,Keiser University,M,206,The Sun Conference
+526,Savannah College of Art and Design,M,206,The Sun Conference
+10023296,St. Thomas University (FL),M,206,The Sun Conference
+10038099,William Carey University,M,206,The Sun Conference
+10004766,Life University,M,206,The Sun Conference
+10026299,Ave Maria University,M,206,The Sun Conference
+10007688,Loyola University New Orleans,M,206,The Sun Conference
+10003289,Thomas University,M,206,The Sun Conference
+10018994,New College of Florida,M,206,The Sun Conference
+339,Keiser University,F,206,The Sun Conference
+526,Savannah College of Art and Design,F,206,The Sun Conference
+10023296,St. Thomas University (FL),F,206,The Sun Conference
+10038099,William Carey University,F,206,The Sun Conference
+10004766,Life University,F,206,The Sun Conference
+10026299,Ave Maria University,F,206,The Sun Conference
+10003289,Thomas University,F,206,The Sun Conference
+10007688,Loyola University New Orleans,F,206,The Sun Conference
+10018994,New College of Florida,F,206,The Sun Conference
+10021606,Southern Virginia University,M,216,USA South Conference
+10020194,Piedmont University,M,216,USA South Conference
+10010314,William Peace University,M,216,USA South Conference
+10021606,Southern Virginia University,F,216,USA South Conference
+10020194,Piedmont University,F,216,USA South Conference
+10010314,William Peace University,F,216,USA South Conference
+259,University of Chicago,M,134,University Athletic Association
+59,New York University,M,134,University Athletic Association
+33,Carnegie Mellon University,M,134,University Athletic Association
+123,Emory University,M,134,University Athletic Association
+94,Washington University (Missouri),M,134,University Athletic Association
+200,Case Western Reserve University,M,134,University Athletic Association
+6,University of Rochester,M,134,University Athletic Association
+4,Brandeis University,M,134,University Athletic Association
+59,New York University,F,134,University Athletic Association
+123,Emory University,F,134,University Athletic Association
+259,University of Chicago,F,134,University Athletic Association
+94,Washington University (Missouri),F,134,University Athletic Association
+33,Carnegie Mellon University,F,134,University Athletic Association
+200,Case Western Reserve University,F,134,University Athletic Association
+6,University of Rochester,F,134,University Athletic Association
+4,Brandeis University,F,134,University Athletic Association
+367,University of Wisconsin-Eau Claire,M,133,Wisconsin Intercollegiate Athletic Conference
+113,University of Wisconsin-LaCrosse,M,133,Wisconsin Intercollegiate Athletic Conference
+29,University of Wisconsin-Stevens Point,M,133,Wisconsin Intercollegiate Athletic Conference
+371,University of Wisconsin-Whitewater,M,133,Wisconsin Intercollegiate Athletic Conference
+54,University of Wisconsin-Oshkosh,M,133,Wisconsin Intercollegiate Athletic Conference
+367,University of Wisconsin-Eau Claire,F,133,Wisconsin Intercollegiate Athletic Conference
+113,University of Wisconsin-LaCrosse,F,133,Wisconsin Intercollegiate Athletic Conference
+54,University of Wisconsin-Oshkosh,F,133,Wisconsin Intercollegiate Athletic Conference
+29,University of Wisconsin-Stevens Point,F,133,Wisconsin Intercollegiate Athletic Conference
+371,University of Wisconsin-Whitewater,F,133,Wisconsin Intercollegiate Athletic Conference
