@@ -4,4 +4,4 @@ numpy
 plotly
 pulp
 scipy
-curlcffi
+curl_cffi
