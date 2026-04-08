@@ -698,14 +698,19 @@ else:
         fig_stack = go.Figure()
         for group, color in STROKE_COLORS.items():
             sub = swimmer_group[swimmer_group['Stroke Group'] == group]
-            sub = sub.set_index('Swimmer').reindex(total_by_swimmer.index, fill_value=0)
+    
+            if sub.empty:
+                pts = pd.Series(0.0, index=total_by_swimmer.index)
+            else:
+                pts = sub.set_index('Swimmer').reindex(total_by_swimmer.index, fill_value=0)['Points']
+
             fig_stack.add_trace(go.Bar(
                 y=total_by_swimmer.index.tolist(),
-                x=sub['Points'].tolist(),
+                x=pts.tolist(),
                 name=group,
                 orientation='h',
-                marker_color=color,
-                hovertemplate='<b>%{y}</b> — ' + group + '<br>%{x:.1f} pts<extra></extra>',
+                marker=dict(color=color),
+                hovertemplate=f"%{{y}}<br>{group} <br>%{{x:.1f}} pts<extra></extra>",
             ))
         fig_stack.update_layout(
             barmode='stack',
