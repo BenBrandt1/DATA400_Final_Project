@@ -63,7 +63,7 @@ def extract_team_id(link):
 
 @st.cache_data(show_spinner=False)
 def get_team_info(team_id):
-    df = pd.read_csv(r"C:\Users\badba\OneDrive\Documents\GitHub\DATA400_Final_Project\Final_Project\conference_teams.csv", dtype={'team_id': str})
+    df = pd.read_csv("conference_teams.csv", dtype={'team_id': str})
     match = df[df['team_id'] == str(team_id)]
     if match.empty:
         return None, None

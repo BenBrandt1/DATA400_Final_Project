@@ -67,7 +67,7 @@ def map_event_name(swimcloud_name):
 # ─────────────────────────────────────────────
 # LOAD REGRESSION FILE
 # ─────────────────────────────────────────────
-REGRESSION_FILE = r"C:\Users\badba\OneDrive\Documents\GitHub\DATA400_Final_Project\Final_Project\regression_outputs.csv"
+REGRESSION_FILE = 'regression_outputs.csv'
 
 try:
     cuts_raw = pd.read_csv(REGRESSION_FILE)
