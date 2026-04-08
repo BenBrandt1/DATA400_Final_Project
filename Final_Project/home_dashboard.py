@@ -77,12 +77,9 @@ def get_event_data_api(team_id, event_code, gender, season_id):
         f"?dont_group=false&event={event_code}&eventcourse=Y"
         f"&gender={gender}&page=1&season_id={season_id}&tag_id=&team_id={team_id}"
     )
-    proxy_user = st.secrets["webshare"]["username"]
-    proxy_pass = st.secrets["webshare"]["password"]
-    proxies = {"https": f"http://{proxy_user}:{proxy_pass}@proxy.webshare.io:80"}
     
     try:
-        response = requests.get(url, impersonate="chrome120", timeout=10)
+        response = requests.get(url, impersonate="chrome124", timeout=10)
         response.raise_for_status()
         data = response.json()
         results = data.get('results', [])
