@@ -4,6 +4,9 @@ import numpy as np
 import pulp
 import re
 from scipy import stats
+from pathlib import Path
+
+DATA_DIR = Path(__file__).parent.parent.parent / 'data'
 
 st.set_page_config(page_title='Lineup Optimizer', layout='wide')
 st.title('Conference Championship Lineup Optimizer')
@@ -188,12 +191,10 @@ for i, (place, default_pts) in enumerate(scoring_selection.items()):
 # ─────────────────────────────────────────────
 # LOAD REGRESSION CUTS
 # ─────────────────────────────────────────────
-REGRESSION_FILE = 'regression_outputs.csv'
-
 try:
-    cuts_raw = pd.read_csv(REGRESSION_FILE)
+    cuts_raw = pd.read_csv(DATA_DIR / 'regression_outputs.csv')
 except FileNotFoundError:
-    st.error(f'`{REGRESSION_FILE}` not found. Make sure it is in the same directory as this app.')
+    st.error(f'`{cuts_raw}` not found.')
     st.stop()
 
 cuts_lookup = {}

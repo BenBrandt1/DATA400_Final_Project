@@ -4,6 +4,9 @@ import numpy as np
 import plotly.graph_objects as go
 import plotly.express as px
 import re
+from pathlib import Path
+
+DATA_DIR = Path(__file__).parent.parent.parent / 'data'
 
 st.set_page_config(page_title='Lineup Analysis', layout='wide')
 st.title('Lineup Analysis')
@@ -70,7 +73,7 @@ def map_event_name(swimcloud_name):
 REGRESSION_FILE = 'regression_outputs.csv'
 
 try:
-    cuts_raw = pd.read_csv(REGRESSION_FILE)
+    cuts_raw = pd.read_csv(DATA_DIR / REGRESSION_FILE)
 except FileNotFoundError:
     st.error(f'`{REGRESSION_FILE}` not found. Make sure it is in the same directory as this app.')
     st.stop()
@@ -397,7 +400,7 @@ else:
         remaining   = [e for e in pivot.columns if e not in event_order]
         pivot       = pivot[event_order + remaining]
 
-        hover_text = pivot.map(lambda v: f'{v:.1f} pts' if v > 0 else '—')
+        hover_text = pivot.applymap(lambda v: f'{v:.1f} pts' if v > 0 else '—')
 
         fig_heat = go.Figure(go.Heatmap(
             z=pivot.values,
@@ -698,22 +701,14 @@ else:
         fig_stack = go.Figure()
         for group, color in STROKE_COLORS.items():
             sub = swimmer_group[swimmer_group['Stroke Group'] == group]
-
-            if sub.empty:
-                pts = pd.Series(0.0, index=total_by_swimmer.index)
-            else:
-                pts = (
-                    sub.set_index('Swimmer')['Points']
-                    .reindex(total_by_swimmer.index, fill_value=0.0)
-                )
-
+            sub = sub.set_index('Swimmer').reindex(total_by_swimmer.index, fill_value=0)
             fig_stack.add_trace(go.Bar(
                 y=total_by_swimmer.index.tolist(),
-                x=pts.tolist(),
+                x=sub['Points'].tolist(),
                 name=group,
                 orientation='h',
-                marker=dict(color=color),
-                hovertemplate=f"%{{y}}<br>{group}<br>%{{x:.1f}} pts<extra></extra>",
+                marker_color=color,
+                hovertemplate='<b>%{y}</b> — ' + group + '<br>%{x:.1f} pts<extra></extra>',
             ))
         fig_stack.update_layout(
             barmode='stack',

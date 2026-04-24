@@ -9,9 +9,9 @@ from scipy import stats
 # ─────────────────────────────────────────────
 # CONFIG
 # ─────────────────────────────────────────────
-INPUT_CSV       = 'centennial_results.csv'
-OUTPUT_CSV      = 'regression_outputs.csv'
-CONFERENCE_ID   = 143
+INPUT_CSV       = 'data/centennial_results.csv'
+OUTPUT_CSV      = 'data/regression_outputs.csv'
+CONFERENCE_ID   = 100
 FUTURE_YEAR     = 2027
 MIN_YEARS       = 4
 KEY_PLACES      = [1, 8, 16, 24, 32]

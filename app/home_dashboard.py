@@ -3,6 +3,9 @@ import pandas as pd
 import re
 import traceback
 from curl_cffi import requests
+from pathlib import Path
+
+DATA_DIR = Path(__file__).parent.parent / 'data'
 
 st.set_page_config(page_title='Home Page', layout="wide")
 st.title('NCAA Championship Lineup Optimizer')
@@ -63,7 +66,7 @@ def extract_team_id(link):
 
 @st.cache_data(show_spinner=False)
 def get_team_info(team_id):
-    df = pd.read_csv("conference_teams.csv", dtype={'team_id': str})
+    df = pd.read_csv(DATA_DIR / 'conference_teams.csv', dtype={'team_id': str})
     match = df[df['team_id'] == str(team_id)]
     if match.empty:
         return None, None
@@ -77,6 +80,7 @@ def get_event_data_api(team_id, event_code, gender, season_id):
         f"?dont_group=false&event={event_code}&eventcourse=Y"
         f"&gender={gender}&page=1&season_id={season_id}&tag_id=&team_id={team_id}"
     )
+
     proxy_user = st.secrets["webshare"]["username"]
     proxy_pass = st.secrets["webshare"]["password"]
     proxy = f"http://{proxy_user}:{proxy_pass}@p.webshare.io:80"

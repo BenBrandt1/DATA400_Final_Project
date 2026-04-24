@@ -1,12 +1,13 @@
-import requests
+from curl_cffi import requests
 from bs4 import BeautifulSoup as bs
 import csv
 import pandas as pd
+import time
 
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36'}
 
 def getConferences():
-    response = requests.get("https://www.swimcloud.com/api/regions/tree/", headers=headers)
+    response = requests.get("https://www.swimcloud.com/api/regions/tree/", headers=headers, impersonate="chrome120", timeout=10)
     test = response.json()
     college_subregions = test[2].get("subregions")[1].get("subregions")[7:]
     conferences = []
@@ -20,7 +21,7 @@ def getConferences():
 
 def getSeasonID():
     url = "https://www.swimcloud.com/api/seasonchoices/"
-    response = requests.get(url, headers=headers, timeout=10)
+    response = requests.get(url, headers=headers, impersonate="chrome120", timeout=10)
     data = response.json()
         
     return data[0]['seasonId']
@@ -28,7 +29,7 @@ def getSeasonID():
 
 def getConferenceTeamIDs(gender_id, conference_id, season_id):
     url = f'https://www.swimcloud.com/api/performances/top_rankings/?event_course=Y&gender={gender_id}&page=1&rank_type=D&region=conference_{conference_id}&season_id={season_id}&sort_by=top50'
-    response = requests.get(url, headers=headers)
+    response = requests.get(url, headers=headers, impersonate="chrome120", timeout=10)
     dictionary = response.json()
     team_list = []
     results = dictionary.get("results")
@@ -74,12 +75,12 @@ def getConferenceNameMap(csv_file='conference_teams.csv'):
 def getConferenceMeetIDs(conference_id):
     meet_ids_list = []
     url = f"https://www.swimcloud.com/api/meets/results_page_list/?exclude_notsubmitted=true&meet_type=120&name=&order_by=latest&page=1&page_view=regionMeets&period=past_all&region=conference_{conference_id}&season_id&team"
-    response = requests.get(url, headers=headers)
+    response = requests.get(url, headers=headers, impersonate="chrome120", timeout=10)
     dictionary = response.json()
     page_count = dictionary.get("page_count")
     for page in range(1, page_count + 1):
         url = f"https://www.swimcloud.com/api/meets/results_page_list/?exclude_notsubmitted=true&meet_type=120&name=&order_by=latest&page={page}&page_view=regionMeets&period=past_all&region=conference_{conference_id}&season_id&team"
-        response = requests.get(url, headers=headers)
+        response = requests.get(url, headers=headers, impersonate="chrome120", timeout=10)
         meets = response.json().get("results")
         for meet in meets:
             meet_ids_list.append({
@@ -93,19 +94,16 @@ def getConferenceMeetIDs(conference_id):
 def getMeetEventList(meet_ID):
     meet_event_list = []
     meet_url = 'https://swimcloud.com/results/' + str(meet_ID)
-    url = requests.get(meet_url, headers={
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36',
-        'Referer': 'https://google.com/'
-    })
-    url.encoding = 'utf-8'
-    soup = bs(url.text, 'html.parser')
+    response = requests.get(meet_url, headers=headers, impersonate="chrome120", timeout=10)
+    response.encoding = 'utf-8'
+    soup = bs(response.text, 'html.parser')
 
     try:
-        event_list = soup.find('ul', attrs={'class': 'c-sticky-filters__list'}).find_all('a', class_='c-events__link')
+        event_list = soup.find('ul', id='meet-events-placeholder').find_all('a', class_='c-events__link')
     except AttributeError:
         print('An invalid meet_ID was entered, causing the following error:')
         raise
-
+    
     for event in event_list:
         body = event.find('div', attrs={'class': 'c-events__link-body'})
         event_name = body['title'] if body else None
@@ -116,24 +114,17 @@ def getMeetEventList(meet_ID):
             'event_ID': event_id,
             'event_href': event_href
         })
-
     return meet_event_list
 
 
 def getCollegeMeetResults(meet_ID, event_href, is_relay = False):
-    response = requests.get(
-        'https://www.swimcloud.com' + event_href,
-        headers={
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36',
-            'Referer': 'https://google.com/'
-        }
-    )
+    results_url = 'https://www.swimcloud.com' + event_href
+    response = requests.get(results_url, headers=headers, impersonate="chrome120", timeout=10)
     response.encoding = 'utf-8'
     soup = bs(response.text, 'html.parser')
     results = []
 
     event_tables = soup.find_all('div', attrs={'class': 'o-table-group'})
-
     for group in event_tables:
         table = group.find('table')
         caption = table.find('caption', attrs={'class': 'c-table-clean__caption'})
@@ -183,9 +174,9 @@ def getCollegeMeetResults(meet_ID, event_href, is_relay = False):
                         'time': swim_time
                     })
             except (AttributeError, IndexError) as e:
-                print(f'Skipped row: {e}')
+                print(f'Skipped event {group_label}: {e}')
                 continue
-
+    time.sleep(2)
     return results
 
 
@@ -225,10 +216,14 @@ def getMeetResultsCSV(conference_id, conference_name, filename='meet_results.csv
                         r['year'] = year
                         r['conference_id'] = conference_id
                         r['conference'] = conference_name
+                        
                     all_results.extend(results)
+                    
                 except Exception as e:
                     print(f"Skipping event {event_name}: {e}")
                     continue
+                
+        time.sleep(5)
 
     if all_results:
         fieldnames = ['meet_ID', 'meet_name', 'year', 'conference_id', 'conference',
@@ -244,6 +239,6 @@ def getMeetResultsCSV(conference_id, conference_name, filename='meet_results.csv
         
 
 conf_map = getConferenceNameMap()
-conf_name = conf_map.get(143, 'Unknown')
-getMeetResultsCSV(143, conf_name, 'centennial_results.csv')
+conf_name = conf_map.get(100, 'Unknown')
+getMeetResultsCSV(100, conf_name, 'odac_results.csv')
 
