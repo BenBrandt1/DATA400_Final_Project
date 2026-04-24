@@ -1,5 +1,5 @@
 # Streamlit secrets
-Final_Project/.streamlit/secrets.toml
+app/.streamlit/secrets.toml
 
 # Python
 __pycache__/
