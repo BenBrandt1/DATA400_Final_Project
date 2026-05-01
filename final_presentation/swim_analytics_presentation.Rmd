@@ -1,0 +1,512 @@
+---
+title: "Predictive Modeling and Lineup Optimization in Collegiate Swimming"
+subtitle: "A Data-Driven Tool for NCAA Swim Coaches"
+author: "Ben Brandt & Andrew Kelley"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: [default, metropolis, metropolis-fonts, custom.css]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+---
+
+# The Problem
+
+.left-col[
+### Coaches operate with limited analytical infrastructure
+
+At most programs, conference championship preparation looks like this:
+
+- Manually reviewing past meet results in spreadsheets
+- Gut-feel decisions on who swims which events
+- No systematic way to predict where cut times will fall next season
+- Recruiting based on personal network, not roster gap analysis
+
+]
+
+.right-col[
+.accent-box[
+**The stakes are high.** A single misassigned entry — putting a swimmer in an event 1 place outside scoring — can be the difference between finishing 3rd and 5th as a team.
+]
+
+<br>
+
+.highlight-box[
+**The question we asked:**
+
+Can we use historical conference meet data and optimization methods to help coaches make better decisions — on lineups, on recruiting, and on goal-setting?
+]
+]
+
+---
+
+# Our Solution: A Three-Part Analytics Platform
+
+<br>
+
+.metric-row[
+.metric-card[
+.number[🏊]
+.label[**Data Collection**<br>Automated scraping of all NCAA conference championship results from SwimCloud]
+]
+.metric-card[
+.number[📈]
+.label[**Predictive Modeling**<br>Linear regression on historical cut times to forecast where the bar will fall next season]
+]
+.metric-card[
+.number[⚙️]
+.label[**Lineup Optimization**<br>Integer linear programming to assign swimmers to events that maximize expected team points]
+]
+]
+
+<br>
+
+.highlight-box[
+Delivered as a **Streamlit web application** — no coding required. A coach pastes their SwimCloud team link and gets a full analytics suite in seconds.
+]
+
+---
+class: section-slide, center, middle
+
+# Part 1: The Data
+
+---
+class: balanced
+
+# Data Collection
+
+.left-col[
+### Source: SwimCloud.com
+
+SwimCloud is the primary public database for collegiate swim results, including public conference championship results.
+
+**What we scrape:**
+- Every event result from every conference championship meet
+- Historical data going back as far as available
+- Both individual and relay events
+- Men's and Women's programs
+
+**Technical approach:**
+- `curl_cffi` with Chrome browser impersonation
+- Rotating user agents and randomized delays
+- Resumable scraping with progress checkpoints
+]
+
+.right-col[
+```python
+# Browser impersonation to avoid detection
+session = cffi_requests.Session(
+  impersonate="chrome136"
+)
+
+# Randomized delay between requests
+time.sleep(random.uniform(0.75, 1.5))
+```
+
+.highlight-box[
+**Data collected per result row:**
+- Meet name, year, conference
+- Event name, gender, heat type
+- Swimmer/team IDs, time, place
+]
+
+.badge[conference_id] .badge[meet_name] .badge[event_name] .badge[gender] .badge[time] .badge[place] .badge[swimmer_ID] .badge[team_ID]
+]
+
+---
+class: balanced
+
+# Data Challenges & Cleaning
+
+.left-col[
+### Challenge 1: Conference meet identification
+
+Not every historical meet is the conference championship. Invitationals, dual meets, and ECAC-style events can contaminate the dataset.
+
+**Solution:** Blocklists and championship keyword dictionaries isolate true conference meets.
+
+<br>
+
+### Challenge 2: The "missing year" problem
+
+Some conferences skipped championship years, especially around COVID.
+
+**Solution:** Drop foreign-meet rows from years with no championship.
+]
+
+.right-col[
+### Challenge 3: Re-seeding
+
+A swimmer from Conference A racing at Conference B's meet must be assigned back to the right conference.
+
+**Solution:** Retain foreign rows only when team membership confirms the match.
+
+<br>
+
+### Challenge 4: Heat type normalization
+
+Finals, prelims, and swimoffs need to be merged into one ordered result list.
+
+```python
+FINALS_TYPES = {
+  'a final', 'b final', 
+  'c final', 'timed finals'
+}
+```
+]
+
+---
+class: section-slide, center, middle
+
+# Part 2: Predictive Modeling
+
+---
+class: balanced-small
+
+# Predicting Conference Cut Times
+
+### The core question: *What time will you need to score at conference next year?*
+
+.left-col[
+**Approach: Linear regression over time**
+
+For each combination of `(conference, event, gender, place)` we fit a regression of `time ~ year` using historical championship results.
+
+Key places modeled: **1st, 8th, 16th, 24th, 32nd**
+
+These correspond to the A Final bubble, B Final bubble, and C Final bubble — the most strategically relevant cutoffs.
+
+**Pre-processing:**
+- Rolling 3-year median smoothing to reduce single-year outliers
+- Minimum 4 years of data required to fit a model
+- Monotonicity enforcement: slower places cannot be predicted faster than faster places
+]
+
+.right-col[
+```python
+fit = stats.linregress(year, time)
+
+predicted_time = (
+  fit.intercept + fit.slope * target_year
+)
+
+r_squared = fit.rvalue ** 2
+```
+
+.highlight-box[
+**Output per model:**
+- Predicted time for target year
+- R² and p-value
+- Slope and sample size
+]
+
+.accent-box[
+In swimming, times generally **get faster each year**. A negative slope reflects the gradual rise in competitive depth.
+]
+]
+
+---
+class: model-output
+
+# Model Output Example
+
+### What the regression produces for a single conference
+
+<br>
+
+| Event | Gender | Place | Predicted Time | R² | p-value | Slope | n |
+|---|---|---:|---:|---:|---:|---:|---:|
+| 100 Free | M | 1 | 42.81 | 0.91 | 0.001 | -0.13 | 8 |
+| 100 Free | M | 8 | 44.12 | 0.88 | 0.002 | -0.10 | 8 |
+| 100 Free | M | 16 | 45.63 | 0.82 | 0.005 | -0.08 | 7 |
+| 200 IM | F | 1 | 1:54.30 | 0.86 | 0.004 | -0.31 | 6 |
+| 200 IM | F | 8 | 1:57.44 | 0.79 | 0.011 | -0.24 | 6 |
+
+<br>
+
+.highlight-box[
+These predicted cuts are the backbone of every downstream feature — the optimizer, the cut curve visualizations, the recruit filter, and the roster gap analysis all consume this output.
+]
+
+.footnote-custom[*Example values shown for illustration. Actual outputs vary by conference.*]
+
+---
+class: section-slide, center, middle
+
+# Part 3: The Application
+
+---
+
+# Application Architecture
+
+<br>
+
+.flowchart[
+``` 
+SwimCloud (web)
+      │
+      ▼
+swimcloud_scraper.py ──► conference_X_results.csv (all conferences)
+      │
+      ▼
+reseed_conference_results.py ──► conference_X_results_reseeded.csv
+      │
+      ▼
+conference_cut_regression.py ──► regression_outputs.csv
+                                        │
+                          ┌─────────────┼──────────────┐
+                          ▼             ▼              ▼
+                    Home Page    Lineup Optimizer   Cut Analysis
+                  (live roster    (PuLP ILP)       + Recruit Finder
+                   via API)
+```
+]
+
+.highlight-box[
+The data pipeline runs **offline** (scraping + modeling). The Streamlit app is **live** — it pulls a team's current season times from SwimCloud's API in real time when a coach enters their team link.
+]
+
+---
+class: home-slide
+
+# Page 1: Home & Roster Loading
+
+.left-col[
+### How a coach gets started
+
+1. Navigate to their team page on SwimCloud
+2. Paste the URL into the app
+3. The app calls SwimCloud's API to pull **current-season best times** for every swimmer on the roster across all 13 individual yard events
+4. Data is stored in session state — all three downstream pages consume it without re-scraping
+
+.highlight-box[
+Live API access means a coach can use the tool **mid-season** — times update as swimmers race.
+]
+]
+
+.right-col[
+### What loads automatically
+
+| Event | Swimmer | Time |
+|---|---|---|
+| 100 Free | J. Smith | 43.21 |
+| 100 Free | M. Jones | 44.05 |
+| 200 Back | A. Lee | 1:47.33 |
+| 200 IM | T. Brown | 1:53.90 |
+| … | … | … |
+
+Both **Men's and Women's** rosters load simultaneously. All 13 individual yard events are captured.
+
+.badge[50 Free] .badge[100 Free] .badge[200 Free] .badge[500 Free] .badge[1650 Free] .badge[100 Back] .badge[200 Back] .badge[100 Breast] .badge[200 Breast] .badge[100 Fly] .badge[200 Fly] .badge[200 IM] .badge[400 IM]
+]
+
+---
+
+# Page 2: Conference Lineup Optimizer
+
+.left-col[
+### The optimization problem
+
+**Decision variables:** Binary — does swimmer *s* swim event *e*? (1 or 0)
+
+**Objective:** Maximize total expected team points
+
+**Constraints:**
+- Each swimmer entered in ≤ N individual events (typically 3)
+- Total roster entries ≤ max cap (typically 18 swimmers)
+- A swimmer can only be entered in events they have a time for
+- User can manually exclude swimmers (injured, not attending)
+
+**Solver:** PuLP with CBC backend
+
+]
+
+.right-col[
+### How expected points are calculated
+
+For each (swimmer, event) pair:
+
+1. Pull their season best time
+2. Use the regression cut table to **interpolate their estimated finishing place**
+3. Map estimated place → expected points using the scoring table
+4. Swimmers near the scoring bubble (within N places) are flagged but still included
+
+.accent-box[
+**Why ILP?** A greedy approach fails — the same swimmer appearing in 3 events creates interdependencies. ILP finds the globally optimal assignment.
+]
+]
+
+---
+
+# Page 3: Cut Analysis
+
+### Six visualizations to understand your team's conference position
+
+.feature-grid[
+.feature-card[
+**Cut Time Curve**
+<p>Predicted time vs. place for any event, with A/B/C Final lines visible.</p>
+]
+.feature-card[
+**Time-to-Cut Waterfall**
+<p>Each swimmer plotted against the cut curve to show scorers and bubble athletes.</p>
+]
+.feature-card[
+**Event Versatility**
+<p>Highlights swimmers who project to score in multiple events.</p>
+]
+.feature-card[
+**Projected Points Trend**
+<p>Tracks how team scoring power changes year over year.</p>
+]
+.feature-card[
+**Scoring Depth**
+<p>Counts swimmers by A Final, B Final, C Final, near scorer, and off pace zones.</p>
+]
+.feature-card[
+**Recruiting Gaps**
+<p>Breaks projected points down by stroke group and event to guide recruiting.</p>
+]
+]
+
+---
+
+# Page 4: Recruit Finder
+
+.left-col[
+### Finding the right prospects
+
+The tool ships with a pre-scraped database of uncommitted recruits from SwimCloud's recruiting rankings, including each swimmer's top 5 events and times.
+
+**Filters available:**
+- Gender & graduation year
+- Power Index range (fastest ↔ slowest)
+- Desired event
+- **Conference scoring window filter** — only show recruits whose time falls between the projected 1st and last scoring place (with margin)
+- **Roster fit flag** — automatically identifies recruits whose events fill the team's *N* weakest scoring events
+]
+
+.right-col[
+.highlight-box[
+**Example output row:**
+
+| Field | Value |
+|---|---|
+| Name | Emma R. |
+| Grad Year | 2028 |
+| Power Index | 3.42 |
+| Roster Fit | 200 Back, 400 IM |
+| Event 1 | 200 Back (SCY) — 1:56.4 |
+| Event 2 | 400 IM (SCY) — 4:16.2 |
+| Event 3 | 200 IM (SCY) — 2:01.8 |
+]
+
+.accent-box[
+The "Roster Fit" column is automatically computed by ranking the team's current events by projected points and flagging recruits who fill the bottom N events.
+]
+]
+
+---
+class: section-slide, center, middle
+
+# Implications & Ethics
+
+---
+class: balanced-large
+
+# Implications for Stakeholders
+
+.left-col[
+### For Coaches
+- **Lineup decisions backed by data**, not just intuition
+- **Recruiting clarity** around exact event/time targets
+- **Honest goal-setting** from predicted cut trends
+
+### For Athletic Departments
+- Low-cost analytics capability without hiring a dedicated analyst
+- Objective framework for evaluating program trajectory
+]
+
+.right-col[
+### For Swimmers
+- Better event selection based on where they are genuinely competitive
+- Transparent expectations from coaches
+
+### For the Broader Ecosystem
+- Built to cover **all NCAA conferences**
+- Gives mid-major programs access to practical analytics
+
+.highlight-box[
+The tool is descriptive and advisory — it surfaces information. Final decisions remain entirely with the coach.
+]
+]
+
+---
+class: balanced-large
+
+# Ethical, Legal & Societal Considerations
+
+.left-col[
+### Data & Privacy
+- Data scraped is **publicly available** on SwimCloud
+- Swimmer IDs and names are used only for roster matching
+- Recruit data includes public rankings only; no contact info
+
+### Scraping Ethics
+- The scraper uses rate limiting, randomized delays, and session management to avoid server strain
+- No authentication bypass or paywall circumvention — only public endpoints
+]
+
+.right-col[
+### Fairness & Bias
+- The model is only as good as the historical data
+- Conferences with fewer years of data should be interpreted with more caution
+- Consistent improvements in a conference (e.g., recruiting a dominant program) may not be captured well by a linear model
+
+### Over-reliance Risk
+.accent-box[
+**Important caveat:** Outputs are projections based on historical averages. Race-day conditions, taper timing, and swimmer development are not modeled.
+]
+]
+
+---
+
+# Current Status & Next Steps
+
+.left-col[
+### What's working now
+- ✅ Full scraping pipeline operational
+- ✅ Regression model producing outputs
+- ✅ Streamlit app functional across all 4 pages
+- ✅ Recruit database populated for 2027 & 2028 classes
+- ✅ Bot-detection evasion and resumable scraping
+
+### Data status
+- 🔄 Actively scraping all NCAA conferences
+- Conferences vary in data richness — larger conferences with longer championship histories produce the most reliable models
+]
+
+.right-col[
+### Planned improvements
+- **Relay optimizer** — include relay event point projections in the ILP
+- **Multi-year recruit tracking** — flag recruits who have been uncommitted across multiple seasons
+- **Conference comparison** — let coaches benchmark their conference's cut trends against others
+- **Confidence-weighted scoring** — weight expected points by the model's R² to penalize low-confidence predictions in the optimizer
+
+.highlight-box[
+The end goal is a **freely available resource** for coaches at any NCAA program — giving smaller programs analytical capabilities that have historically only existed at well-funded departments.
+]
+]
+
+---
+
+class: section-slide, center, middle
+
+# Thank You
+
+
+Questions welcome.

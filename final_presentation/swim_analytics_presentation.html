@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Predictive Modeling and Lineup Optimization in Collegiate Swimming</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ben Brandt &amp; Andrew Kelley" />
+    <meta name="date" content="2026-05-01" />
+    <script src="libs/header-attrs-2.30/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Predictive Modeling and Lineup Optimization in Collegiate Swimming
+]
+.subtitle[
+## A Data-Driven Tool for NCAA Swim Coaches
+]
+.author[
+### Ben Brandt &amp; Andrew Kelley
+]
+.date[
+### 2026-05-01
+]
+
+---
+
+
+# The Problem
+
+.left-col[
+### Coaches operate with limited analytical infrastructure
+
+At most programs, conference championship preparation looks like this:
+
+- Manually reviewing past meet results in spreadsheets
+- Gut-feel decisions on who swims which events
+- No systematic way to predict where cut times will fall next season
+- Recruiting based on personal network, not roster gap analysis
+
+]
+
+.right-col[
+.accent-box[
+**The stakes are high.** A single misassigned entry — putting a swimmer in an event 1 place outside scoring — can be the difference between finishing 3rd and 5th as a team.
+]
+
+&lt;br&gt;
+
+.highlight-box[
+**The question we asked:**
+
+Can we use historical conference meet data and optimization methods to help coaches make better decisions — on lineups, on recruiting, and on goal-setting?
+]
+]
+
+---
+
+# Our Solution: A Three-Part Analytics Platform
+
+&lt;br&gt;
+
+.metric-row[
+.metric-card[
+.number[🏊]
+.label[**Data Collection**&lt;br&gt;Automated scraping of all NCAA conference championship results from SwimCloud]
+]
+.metric-card[
+.number[📈]
+.label[**Predictive Modeling**&lt;br&gt;Linear regression on historical cut times to forecast where the bar will fall next season]
+]
+.metric-card[
+.number[⚙️]
+.label[**Lineup Optimization**&lt;br&gt;Integer linear programming to assign swimmers to events that maximize expected team points]
+]
+]
+
+&lt;br&gt;
+
+.highlight-box[
+Delivered as a **Streamlit web application** — no coding required. A coach pastes their SwimCloud team link and gets a full analytics suite in seconds.
+]
+
+---
+class: section-slide, center, middle
+
+# Part 1: The Data
+
+---
+class: balanced
+
+# Data Collection
+
+.left-col[
+### Source: SwimCloud.com
+
+SwimCloud is the primary public database for collegiate swim results, including public conference championship results.
+
+**What we scrape:**
+- Every event result from every conference championship meet
+- Historical data going back as far as available
+- Both individual and relay events
+- Men's and Women's programs
+
+**Technical approach:**
+- `curl_cffi` with Chrome browser impersonation
+- Rotating user agents and randomized delays
+- Resumable scraping with progress checkpoints
+]
+
+.right-col[
+```python
+# Browser impersonation to avoid detection
+session = cffi_requests.Session(
+  impersonate="chrome136"
+)
+
+# Randomized delay between requests
+time.sleep(random.uniform(0.75, 1.5))
+```
+
+.highlight-box[
+**Data collected per result row:**
+- Meet name, year, conference
+- Event name, gender, heat type
+- Swimmer/team IDs, time, place
+]
+
+.badge[conference_id] .badge[meet_name] .badge[event_name] .badge[gender] .badge[time] .badge[place] .badge[swimmer_ID] .badge[team_ID]
+]
+
+---
+class: balanced
+
+# Data Challenges &amp; Cleaning
+
+.left-col[
+### Challenge 1: Conference meet identification
+
+Not every historical meet is the conference championship. Invitationals, dual meets, and ECAC-style events can contaminate the dataset.
+
+**Solution:** Blocklists and championship keyword dictionaries isolate true conference meets.
+
+&lt;br&gt;
+
+### Challenge 2: The "missing year" problem
+
+Some conferences skipped championship years, especially around COVID.
+
+**Solution:** Drop foreign-meet rows from years with no championship.
+]
+
+.right-col[
+### Challenge 3: Re-seeding
+
+A swimmer from Conference A racing at Conference B's meet must be assigned back to the right conference.
+
+**Solution:** Retain foreign rows only when team membership confirms the match.
+
+&lt;br&gt;
+
+### Challenge 4: Heat type normalization
+
+Finals, prelims, and swimoffs need to be merged into one ordered result list.
+
+```python
+FINALS_TYPES = {
+  'a final', 'b final', 
+  'c final', 'timed finals'
+}
+```
+]
+
+---
+class: section-slide, center, middle
+
+# Part 2: Predictive Modeling
+
+---
+class: balanced-small
+
+# Predicting Conference Cut Times
+
+### The core question: *What time will you need to score at conference next year?*
+
+.left-col[
+**Approach: Linear regression over time**
+
+For each combination of `(conference, event, gender, place)` we fit a regression of `time ~ year` using historical championship results.
+
+Key places modeled: **1st, 8th, 16th, 24th, 32nd**
+
+These correspond to the A Final bubble, B Final bubble, and C Final bubble — the most strategically relevant cutoffs.
+
+**Pre-processing:**
+- Rolling 3-year median smoothing to reduce single-year outliers
+- Minimum 4 years of data required to fit a model
+- Monotonicity enforcement: slower places cannot be predicted faster than faster places
+]
+
+.right-col[
+```python
+fit = stats.linregress(year, time)
+
+predicted_time = (
+  fit.intercept + fit.slope * target_year
+)
+
+r_squared = fit.rvalue ** 2
+```
+
+.highlight-box[
+**Output per model:**
+- Predicted time for target year
+- R² and p-value
+- Slope and sample size
+]
+
+.accent-box[
+In swimming, times generally **get faster each year**. A negative slope reflects the gradual rise in competitive depth.
+]
+]
+
+---
+class: model-output
+
+# Model Output Example
+
+### What the regression produces for a single conference
+
+&lt;br&gt;
+
+| Event | Gender | Place | Predicted Time | R² | p-value | Slope | n |
+|---|---|---:|---:|---:|---:|---:|---:|
+| 100 Free | M | 1 | 42.81 | 0.91 | 0.001 | -0.13 | 8 |
+| 100 Free | M | 8 | 44.12 | 0.88 | 0.002 | -0.10 | 8 |
+| 100 Free | M | 16 | 45.63 | 0.82 | 0.005 | -0.08 | 7 |
+| 200 IM | F | 1 | 1:54.30 | 0.86 | 0.004 | -0.31 | 6 |
+| 200 IM | F | 8 | 1:57.44 | 0.79 | 0.011 | -0.24 | 6 |
+
+&lt;br&gt;
+
+.highlight-box[
+These predicted cuts are the backbone of every downstream feature — the optimizer, the cut curve visualizations, the recruit filter, and the roster gap analysis all consume this output.
+]
+
+.footnote-custom[*Example values shown for illustration. Actual outputs vary by conference.*]
+
+---
+class: section-slide, center, middle
+
+# Part 3: The Application
+
+---
+
+# Application Architecture
+
+&lt;br&gt;
+
+.flowchart[
+``` 
+SwimCloud (web)
+      │
+      ▼
+swimcloud_scraper.py ──► conference_X_results.csv (all conferences)
+      │
+      ▼
+reseed_conference_results.py ──► conference_X_results_reseeded.csv
+      │
+      ▼
+conference_cut_regression.py ──► regression_outputs.csv
+                                        │
+                          ┌─────────────┼──────────────┐
+                          ▼             ▼              ▼
+                    Home Page    Lineup Optimizer   Cut Analysis
+                  (live roster    (PuLP ILP)       + Recruit Finder
+                   via API)
+```
+]
+
+.highlight-box[
+The data pipeline runs **offline** (scraping + modeling). The Streamlit app is **live** — it pulls a team's current season times from SwimCloud's API in real time when a coach enters their team link.
+]
+
+---
+class: home-slide
+
+# Page 1: Home &amp; Roster Loading
+
+.left-col[
+### How a coach gets started
+
+1. Navigate to their team page on SwimCloud
+2. Paste the URL into the app
+3. The app calls SwimCloud's API to pull **current-season best times** for every swimmer on the roster across all 13 individual yard events
+4. Data is stored in session state — all three downstream pages consume it without re-scraping
+
+.highlight-box[
+Live API access means a coach can use the tool **mid-season** — times update as swimmers race.
+]
+]
+
+.right-col[
+### What loads automatically
+
+| Event | Swimmer | Time |
+|---|---|---|
+| 100 Free | J. Smith | 43.21 |
+| 100 Free | M. Jones | 44.05 |
+| 200 Back | A. Lee | 1:47.33 |
+| 200 IM | T. Brown | 1:53.90 |
+| … | … | … |
+
+Both **Men's and Women's** rosters load simultaneously. All 13 individual yard events are captured.
+
+.badge[50 Free] .badge[100 Free] .badge[200 Free] .badge[500 Free] .badge[1650 Free] .badge[100 Back] .badge[200 Back] .badge[100 Breast] .badge[200 Breast] .badge[100 Fly] .badge[200 Fly] .badge[200 IM] .badge[400 IM]
+]
+
+---
+
+# Page 2: Conference Lineup Optimizer
+
+.left-col[
+### The optimization problem
+
+**Decision variables:** Binary — does swimmer *s* swim event *e*? (1 or 0)
+
+**Objective:** Maximize total expected team points
+
+**Constraints:**
+- Each swimmer entered in ≤ N individual events (typically 3)
+- Total roster entries ≤ max cap (typically 18 swimmers)
+- A swimmer can only be entered in events they have a time for
+- User can manually exclude swimmers (injured, not attending)
+
+**Solver:** PuLP with CBC backend
+
+]
+
+.right-col[
+### How expected points are calculated
+
+For each (swimmer, event) pair:
+
+1. Pull their season best time
+2. Use the regression cut table to **interpolate their estimated finishing place**
+3. Map estimated place → expected points using the scoring table
+4. Swimmers near the scoring bubble (within N places) are flagged but still included
+
+.accent-box[
+**Why ILP?** A greedy approach fails — the same swimmer appearing in 3 events creates interdependencies. ILP finds the globally optimal assignment.
+]
+]
+
+---
+
+# Page 3: Cut Analysis
+
+### Six visualizations to understand your team's conference position
+
+.feature-grid[
+.feature-card[
+**Cut Time Curve**
+&lt;p&gt;Predicted time vs. place for any event, with A/B/C Final lines visible.&lt;/p&gt;
+]
+.feature-card[
+**Time-to-Cut Waterfall**
+&lt;p&gt;Each swimmer plotted against the cut curve to show scorers and bubble athletes.&lt;/p&gt;
+]
+.feature-card[
+**Event Versatility**
+&lt;p&gt;Highlights swimmers who project to score in multiple events.&lt;/p&gt;
+]
+.feature-card[
+**Projected Points Trend**
+&lt;p&gt;Tracks how team scoring power changes year over year.&lt;/p&gt;
+]
+.feature-card[
+**Scoring Depth**
+&lt;p&gt;Counts swimmers by A Final, B Final, C Final, near scorer, and off pace zones.&lt;/p&gt;
+]
+.feature-card[
+**Recruiting Gaps**
+&lt;p&gt;Breaks projected points down by stroke group and event to guide recruiting.&lt;/p&gt;
+]
+]
+
+---
+
+# Page 4: Recruit Finder
+
+.left-col[
+### Finding the right prospects
+
+The tool ships with a pre-scraped database of uncommitted recruits from SwimCloud's recruiting rankings, including each swimmer's top 5 events and times.
+
+**Filters available:**
+- Gender &amp; graduation year
+- Power Index range (fastest ↔ slowest)
+- Desired event
+- **Conference scoring window filter** — only show recruits whose time falls between the projected 1st and last scoring place (with margin)
+- **Roster fit flag** — automatically identifies recruits whose events fill the team's *N* weakest scoring events
+]
+
+.right-col[
+.highlight-box[
+**Example output row:**
+
+| Field | Value |
+|---|---|
+| Name | Emma R. |
+| Grad Year | 2028 |
+| Power Index | 3.42 |
+| Roster Fit | 200 Back, 400 IM |
+| Event 1 | 200 Back (SCY) — 1:56.4 |
+| Event 2 | 400 IM (SCY) — 4:16.2 |
+| Event 3 | 200 IM (SCY) — 2:01.8 |
+]
+
+.accent-box[
+The "Roster Fit" column is automatically computed by ranking the team's current events by projected points and flagging recruits who fill the bottom N events.
+]
+]
+
+---
+class: section-slide, center, middle
+
+# Implications &amp; Ethics
+
+---
+class: balanced-large
+
+# Implications for Stakeholders
+
+.left-col[
+### For Coaches
+- **Lineup decisions backed by data**, not just intuition
+- **Recruiting clarity** around exact event/time targets
+- **Honest goal-setting** from predicted cut trends
+
+### For Athletic Departments
+- Low-cost analytics capability without hiring a dedicated analyst
+- Objective framework for evaluating program trajectory
+]
+
+.right-col[
+### For Swimmers
+- Better event selection based on where they are genuinely competitive
+- Transparent expectations from coaches
+
+### For the Broader Ecosystem
+- Built to cover **all NCAA conferences**
+- Gives mid-major programs access to practical analytics
+
+.highlight-box[
+The tool is descriptive and advisory — it surfaces information. Final decisions remain entirely with the coach.
+]
+]
+
+---
+class: balanced-large
+
+# Ethical, Legal &amp; Societal Considerations
+
+.left-col[
+### Data &amp; Privacy
+- Data scraped is **publicly available** on SwimCloud
+- Swimmer IDs and names are used only for roster matching
+- Recruit data includes public rankings only; no contact info
+
+### Scraping Ethics
+- The scraper uses rate limiting, randomized delays, and session management to avoid server strain
+- No authentication bypass or paywall circumvention — only public endpoints
+]
+
+.right-col[
+### Fairness &amp; Bias
+- The model is only as good as the historical data
+- Conferences with fewer years of data should be interpreted with more caution
+- Consistent improvements in a conference (e.g., recruiting a dominant program) may not be captured well by a linear model
+
+### Over-reliance Risk
+.accent-box[
+**Important caveat:** Outputs are projections based on historical averages. Race-day conditions, taper timing, and swimmer development are not modeled.
+]
+]
+
+---
+
+# Current Status &amp; Next Steps
+
+.left-col[
+### What's working now
+- ✅ Full scraping pipeline operational
+- ✅ Regression model producing outputs
+- ✅ Streamlit app functional across all 4 pages
+- ✅ Recruit database populated for 2027 &amp; 2028 classes
+- ✅ Bot-detection evasion and resumable scraping
+
+### Data status
+- 🔄 Actively scraping all NCAA conferences
+- Conferences vary in data richness — larger conferences with longer championship histories produce the most reliable models
+]
+
+.right-col[
+### Planned improvements
+- **Relay optimizer** — include relay event point projections in the ILP
+- **Multi-year recruit tracking** — flag recruits who have been uncommitted across multiple seasons
+- **Conference comparison** — let coaches benchmark their conference's cut trends against others
+- **Confidence-weighted scoring** — weight expected points by the model's R² to penalize low-confidence predictions in the optimizer
+
+.highlight-box[
+The end goal is a **freely available resource** for coaches at any NCAA program — giving smaller programs analytical capabilities that have historically only existed at well-funded departments.
+]
+]
+
+---
+
+class: section-slide, center, middle
+
+# Thank You
+
+
+Questions welcome.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
