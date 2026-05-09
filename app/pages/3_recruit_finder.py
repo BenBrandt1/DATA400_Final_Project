@@ -4,8 +4,6 @@ import re
 import time
 from pathlib import Path
 
-DATA_DIR = Path(__file__).parent.parent.parent / 'data'
-
 st.set_page_config(page_title='Find Recruits', layout='wide')
 st.title('Find Recruits')
 
@@ -20,7 +18,7 @@ st.markdown("""
 # ─────────────────────────────────────────────
 # GUARD — must scrape home page first
 # ─────────────────────────────────────────────
-if 'event_dataframes' not in st.session_state or not st.session_state.event_dataframes:
+if 'event_dataframes' not in st.session_state or not st.session_state.event_dataframes or 'conference_id' not in st.session_state:
     st.warning('No team data loaded. Please paste a SwimCloud team link on the Home page first.')
     st.stop()
 
@@ -35,6 +33,8 @@ events_list = ['50 Freestyle','100 Freestyle', '200 Freestyle',
                '200 I.M', '400 I.M']
 
 gender_options = ['M', 'F']
+
+DATA_DIR = Path(__file__).parent.parent.parent / 'data'
 
 # ─────────────────────────────────────────────
 # HELPERS
@@ -55,7 +55,7 @@ def parse_swim_time(time_str):
 # ─────────────────────────────────────────────
 @st.cache_data(show_spinner=False)
 def load_recruit_csv(year, gender):
-    path = DATA_DIR / f'recruits_{gender}_{year}.csv'
+    path = DATA_DIR / f'recruits/recruits_{gender}_{year}.csv'
     if path.exists():
         return pd.read_csv(path)
     return None
@@ -84,9 +84,10 @@ SCY_EVENT_MAP = {
 }
 
 @st.cache_data(show_spinner=False)
-def load_cuts(gender):
+def load_cuts(gender, conference_id):
     try:
         cuts_raw = pd.read_csv(DATA_DIR / 'regression_outputs.csv')
+        cuts_raw = cuts_raw[cuts_raw['conference_id'] == conference_id]
     except FileNotFoundError:
         return {}
     lookup = {}
@@ -169,7 +170,7 @@ RECRUIT_EVENT_MAP = {
 }
 
 def build_team_points_by_event(gender):
-    cuts_lookup = load_cuts(gender)
+    cuts_lookup = load_cuts(gender, st.session_state.conference_id)
     event_dfs   = st.session_state.event_dataframes.get(gender, {})
 
     if not cuts_lookup:

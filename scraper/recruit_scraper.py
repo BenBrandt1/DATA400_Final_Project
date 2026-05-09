@@ -157,8 +157,8 @@ def get_all_swimmers(year, gender, num_pages):
     return pd.DataFrame(event_rows)
 
 def to_csv(year, gender, num_pages):
-    df = get_all_swimmers(year, gender, 120)
-    df.to_csv(DATA_DIR / f"recruits_{gender}_{year}.csv")
+    df = get_all_swimmers(year, gender, num_pages)
+    df.to_csv(DATA_DIR / f"recruits/recruits_{gender}_{year}.csv")
     print("CSV Written")
 
 to_csv(2028, 'F', 120)

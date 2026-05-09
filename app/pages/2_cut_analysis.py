@@ -20,6 +20,18 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────
+# GUARD
+# ─────────────────────────────────────────────
+has_team_data = (
+    'event_dataframes' in st.session_state
+    and bool(st.session_state.event_dataframes)
+)
+
+if 'event_dataframes' not in st.session_state or not st.session_state.event_dataframes or 'conference_id' not in st.session_state:
+    st.warning('No team data loaded. Please paste a SwimCloud team link on the Home page first.')
+    st.stop()
+
+# ─────────────────────────────────────────────
 # HELPERS
 # ─────────────────────────────────────────────
 def seconds_to_swimtime(seconds):
@@ -74,6 +86,7 @@ REGRESSION_FILE = 'regression_outputs.csv'
 
 try:
     cuts_raw = pd.read_csv(DATA_DIR / REGRESSION_FILE)
+    cuts_raw = cuts_raw[cuts_raw['conference_id'] == st.session_state.conference_id]
 except FileNotFoundError:
     st.error(f'`{REGRESSION_FILE}` not found. Make sure it is in the same directory as this app.')
     st.stop()
@@ -104,14 +117,6 @@ if has_year:
     )
 else:
     selected_year = None
-
-# ─────────────────────────────────────────────
-# GUARD: team data for waterfall
-# ─────────────────────────────────────────────
-has_team_data = (
-    'event_dataframes' in st.session_state
-    and bool(st.session_state.event_dataframes)
-)
 
 # ─────────────────────────────────────────────
 # SECTION 1 — CUT CURVE

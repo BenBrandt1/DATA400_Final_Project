@@ -71,7 +71,7 @@ def get_team_info(team_id):
     if match.empty:
         return None, None
     row = match.iloc[0]
-    return row['team_name'], row['conference']
+    return row['team_name'], row['conference'], row['conference_id']
 
 @st.cache_data(show_spinner=False)
 def get_event_data_api(team_id, event_code, gender, season_id):
@@ -86,7 +86,7 @@ def get_event_data_api(team_id, event_code, gender, season_id):
     proxy = f"http://{proxy_user}:{proxy_pass}@p.webshare.io:80"
     
     try:
-        response = requests.get(url, impersonate="chrome124", proxy=proxy, timeout=10)
+        response = requests.get(url, impersonate="chrome136", proxy=proxy, timeout=10)
         response.raise_for_status()
         data = response.json()
         results = data.get('results', [])
@@ -135,10 +135,10 @@ if link:
         try:
             with st.spinner('Loading team data... This may take a minute...'):
                 team_id = extract_team_id(link)
-                team_name, conference_name = get_team_info(team_id)
+                team_name, conference_name, conference_id = get_team_info(team_id)
 
                 if team_name is None:
-                    st.error('Team not found in conference_teams.csv. Add the team and re-run.')
+                    st.error('Team not found. Make sure this is a Collegiate Swim Team.')
                     st.stop()
 
                 event_dataframes = {}
@@ -153,6 +153,7 @@ if link:
                 st.session_state.scraped_link = link
                 st.session_state.team_name = team_name
                 st.session_state.conference_name = conference_name
+                st.session_state.conference_id = conference_id
 
         except Exception as e:
             st.error(f'Main error: {str(e)}')

@@ -20,9 +20,9 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────
-# GUARD — must scrape home page first
+# GUARD
 # ─────────────────────────────────────────────
-if 'event_dataframes' not in st.session_state or not st.session_state.event_dataframes:
+if 'event_dataframes' not in st.session_state or not st.session_state.event_dataframes or 'conference_id' not in st.session_state:
     st.warning('No team data loaded. Please paste a SwimCloud team link on the Home page first.')
     st.stop()
 
@@ -193,6 +193,7 @@ for i, (place, default_pts) in enumerate(scoring_selection.items()):
 # ─────────────────────────────────────────────
 try:
     cuts_raw = pd.read_csv(DATA_DIR / 'regression_outputs.csv')
+    cuts_raw = cuts_raw[cuts_raw['conference_id'] == st.session_state.conference_id]
 except FileNotFoundError:
     st.error(f'`{cuts_raw}` not found.')
     st.stop()
