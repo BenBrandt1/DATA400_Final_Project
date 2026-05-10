@@ -267,7 +267,7 @@ with col4:
 with col5:
     events_pick = st.selectbox('Select Desired Event', events_list)
 
-cuts_lookup = load_cuts(gender)
+cuts_lookup = load_cuts(gender, st.session_state.conference_id)
 conference_cut_filter = False
 if cuts_lookup and EVENTS_LIST_TO_REG.get(events_pick) in cuts_lookup:
     conference_cut_filter = st.checkbox(
