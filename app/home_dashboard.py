@@ -4,6 +4,8 @@ import re
 import traceback
 from curl_cffi import requests
 from pathlib import Path
+import time
+import random
 
 DATA_DIR = Path(__file__).parent.parent / 'data'
 
@@ -22,6 +24,18 @@ st.markdown("""
 # CONSTANTS
 # ─────────────────────────────────────────────
 CURRENT_SEASON_ID = 29
+
+headers = {
+    "Referer": "https://www.swimcloud.com/",
+    "Origin":  "https://www.swimcloud.com",
+    "Accept":  "application/json, text/plain, */*",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive",
+    "Sec-Fetch-Dest": "empty",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Site": "same-origin",
+}
 
 YARD_EVENTS = [
     ('1|50|1',   '50 Yard Freestyle'),
@@ -56,6 +70,13 @@ def format_swim_time(total_seconds):
         return f"{minutes}:{seconds:05.2f}"
     return f"{seconds:.2f}"
 
+@st.cache_resource
+def get_session(proxy):
+    session = requests.Session()
+    session.proxies = {"http": proxy, "https": proxy}
+    session.get("https://www.swimcloud.com/", impersonate="chrome136")
+    return session
+
 # ─────────────────────────────────────────────
 # SCRAPING FUNCTIONS
 # ─────────────────────────────────────────────
@@ -86,7 +107,8 @@ def get_event_data_api(team_id, event_code, gender, season_id):
     proxy = f"http://{proxy_user}:{proxy_pass}@p.webshare.io:80"
     
     try:
-        response = requests.get(url, impersonate="chrome136", proxy=proxy, timeout=10)
+        session = get_session(proxy)
+        response = session.get(url, impersonate="chrome136", headers={**headers, "Referer": f"https://www.swimcloud.com/team/{team_id}/"}, timeout=10)
         response.raise_for_status()
         data = response.json()
         results = data.get('results', [])
@@ -148,6 +170,7 @@ if link:
                         df = get_event_data_api(team_id, event_code, gender, CURRENT_SEASON_ID)
                         if not df.empty:
                             event_dataframes[gender][event_name] = df
+                        time.sleep(random.uniform(0.5,1))
 
                 st.session_state.event_dataframes = event_dataframes
                 st.session_state.scraped_link = link
